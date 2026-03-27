@@ -1,0 +1,200 @@
+[gd_scene format=3 uid="uid://cut5a7ch532n3"]
+
+[ext_resource type="Script" uid="uid://bcm53h8gkolif" path="res://scripts/title.gd" id="1_3g2l2"]
+[ext_resource type="AudioStream" uid="uid://bsego85hxu316" path="res://audio/Title screen.mp3" id="3_ukfm7"]
+[ext_resource type="Texture2D" uid="uid://gu03l0dm3fcy" path="res://Asset/button-Sheet.png" id="4_qxgl8"]
+[ext_resource type="Theme" uid="uid://bpn64vvfosajt" path="res://pink_Slider.tres" id="4_ukfm7"]
+[ext_resource type="Texture2D" uid="uid://bnwxhmnsiae6o" path="res://Asset/title screen-Sheet.png" id="5_ukfm7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgluf"]
+atlas = ExtResource("4_qxgl8")
+region = Rect2(18.032713, 36.014137, 58.97953, 23.967361)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nomfv"]
+atlas = ExtResource("4_qxgl8")
+region = Rect2(117.97817, 37.010387, 58.05111, 23.005188)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmmdr"]
+atlas = ExtResource("5_ukfm7")
+region = Rect2(0, 0, 160, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2q342"]
+atlas = ExtResource("5_ukfm7")
+region = Rect2(160, 0, 160, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64f7j"]
+atlas = ExtResource("5_ukfm7")
+region = Rect2(0, 100, 160, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0wk8"]
+atlas = ExtResource("5_ukfm7")
+region = Rect2(160, 0, 160, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lv56i"]
+atlas = ExtResource("5_ukfm7")
+region = Rect2(0, 0, 160, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x64pm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmmdr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2q342")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64f7j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0wk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lv56i")
+}],
+"loop": true,
+"name": &"Title",
+"speed": 3.0
+}]
+
+[node name="Control" type="Control" unique_id=823947577]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3g2l2")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=781824923]
+stream = ExtResource("3_ukfm7")
+volume_db = 1.0
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[node name="OPTIONS" type="Panel" parent="." unique_id=133066655]
+visible = false
+layout_mode = 0
+offset_left = 468.0
+offset_top = 281.0
+offset_right = 508.0
+offset_bottom = 321.0
+scale = Vector2(5.7779155, 8.15963)
+
+[node name="Back" type="TextureButton" parent="OPTIONS" unique_id=671452840]
+layout_mode = 0
+offset_left = 3.807601
+offset_top = 27.207115
+offset_right = 61.807602
+offset_bottom = 58.207115
+scale = Vector2(0.56617045, 0.28644875)
+texture_normal = SubResource("AtlasTexture_sgluf")
+texture_pressed = SubResource("AtlasTexture_nomfv")
+
+[node name="Label" type="Label" parent="OPTIONS/Back" unique_id=1022606152]
+layout_mode = 0
+offset_left = 9.782089
+offset_top = -0.42784122
+offset_right = 49.78209
+offset_bottom = 22.572159
+text = "Back"
+
+[node name="FX" type="RichTextLabel" parent="OPTIONS" unique_id=708195360]
+layout_mode = 0
+offset_left = 3.807603
+offset_top = 15.564433
+offset_right = 92.8076
+offset_bottom = 55.564434
+scale = Vector2(0.3784014, 0.21351571)
+text = "SOUNDS FX"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="FX_SLIDER" type="HSlider" parent="OPTIONS" unique_id=467072391]
+layout_mode = 0
+offset_left = 5.365255
+offset_top = 20.834278
+offset_right = 154.46025
+offset_bottom = 38.41928
+scale = Vector2(0.205, 0.181)
+theme = ExtResource("4_ukfm7")
+max_value = 1.5
+step = 0.001
+value = 0.75
+ticks_position = 1
+
+[node name="FX2" type="RichTextLabel" parent="OPTIONS" unique_id=662217283]
+layout_mode = 0
+offset_left = 3.63453
+offset_top = 3.5540838
+offset_right = 92.63453
+offset_bottom = 43.554085
+scale = Vector2(0.3784014, 0.21351571)
+text = "    Music"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="M_SLIDER" type="HSlider" parent="OPTIONS" unique_id=1037721947]
+layout_mode = 0
+offset_left = 5.365255
+offset_top = 10.294584
+offset_right = 154.46025
+offset_bottom = 27.879587
+scale = Vector2(0.205, 0.181)
+theme = ExtResource("4_ukfm7")
+max_value = 1.5
+step = 0.001
+value = 0.75
+ticks_position = 1
+
+[node name="TITLE" type="Panel" parent="." unique_id=1976270905]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 281.0
+offset_right = 508.0
+offset_bottom = 321.0
+scale = Vector2(5.7779155, 8.15963)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TITLE" unique_id=14175978]
+layout_mode = 0
+offset_left = 3.9806707
+offset_top = 5.5149565
+offset_right = 73.98067
+offset_bottom = 106.51495
+scale = Vector2(0.45906138, 0.28465006)
+
+[node name="start" type="Button" parent="TITLE/VBoxContainer" unique_id=1320759324]
+layout_mode = 2
+theme = ExtResource("4_ukfm7")
+text = "start"
+
+[node name="eopitois" type="Button" parent="TITLE/VBoxContainer" unique_id=1017327910]
+layout_mode = 2
+theme = ExtResource("4_ukfm7")
+button_mask = 3
+text = "options"
+
+[node name="quit" type="Button" parent="TITLE/VBoxContainer" unique_id=2042784902]
+layout_mode = 2
+theme = ExtResource("4_ukfm7")
+button_mask = 3
+text = "quit"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2049331059]
+position = Vector2(582, 153)
+scale = Vector2(3.11637, 3.11637)
+sprite_frames = SubResource("SpriteFrames_x64pm")
+animation = &"Title"
+autoplay = "Title"
+frame = 3
+frame_progress = 0.31814447
+
+[connection signal="button_up" from="OPTIONS/Back" to="." method="_on_back_button_up"]
+[connection signal="value_changed" from="OPTIONS/FX_SLIDER" to="." method="_on_fx_slider_value_changed"]
+[connection signal="value_changed" from="OPTIONS/M_SLIDER" to="." method="_on_m_slider_value_changed"]
+[connection signal="button_up" from="TITLE/VBoxContainer/start" to="." method="_on_start_button_up"]
+[connection signal="button_up" from="TITLE/VBoxContainer/eopitois" to="." method="_on_eopitois_button_up"]
+[connection signal="button_up" from="TITLE/VBoxContainer/quit" to="." method="_on_quit_button_up"]

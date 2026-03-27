@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bvjl8g14pnek6"]
+
+[ext_resource type="Texture2D" uid="uid://b28s64txduu2y" path="res://picutres/pngwing.com (5).png" id="1_b84ys"]
+[ext_resource type="Script" uid="uid://ckcb2hdguwgof" path="res://levels/JACSPAW.gd" id="2_32mhh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b84ys"]
+size = Vector2(61.734444, 20)
+
+[node name="Node2D" type="Node2D" unique_id=565638182]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=599153819]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=660398628]
+scale = Vector2(1.9716071, 0.55518067)
+texture = ExtResource("1_b84ys")
+script = ExtResource("2_32mhh")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=1096704055]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D" unique_id=782149046]
+position = Vector2(1.5215988, 7.204862)
+scale = Vector2(2.1578348, -16.891422)
+shape = SubResource("RectangleShape2D_b84ys")
+
+[connection signal="body_shape_exited" from="Sprite2D/Area2D" to="Sprite2D" method="_on_area_2d_body_shape_exited"]

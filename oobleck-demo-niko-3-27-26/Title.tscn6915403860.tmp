@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://cut5a7ch532n3"]
+
+[ext_resource type="Script" uid="uid://bcm53h8gkolif" path="res://title.gd" id="1_ax32a"]
+[ext_resource type="Texture2D" uid="uid://qspkpjtojhig" path="res://fost.png" id="1_c0dwi"]
+[ext_resource type="AudioStream" uid="uid://c467sm8llggcl" path="res://Among Us Drip Theme Song Original (Among Us Trap Remix Amogus Meme Music).mp3" id="3_quvj1"]
+
+[node name="Control" type="Control" unique_id=823947577]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ax32a")
+
+[node name="tiTLE" type="TextureRect" parent="." unique_id=1406480308]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 38.000015
+offset_right = 2107.0
+offset_bottom = 724.0
+scale = Vector2(0.35222653, 0.34272867)
+texture = ExtResource("1_c0dwi")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=781824923]
+stream = ExtResource("3_quvj1")
+autoplay = true
+
+[node name="TITLE" type="Panel" parent="." unique_id=1976270905]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 281.0
+offset_right = 508.0
+offset_bottom = 321.0
+scale = Vector2(5.7779155, 8.15963)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TITLE" unique_id=14175978]
+layout_mode = 0
+offset_left = 3.9806707
+offset_top = 5.5149565
+offset_right = 73.98067
+offset_bottom = 106.51495
+scale = Vector2(0.45906138, 0.28465006)
+
+[node name="start" type="Button" parent="TITLE/VBoxContainer" unique_id=1296213315]
+layout_mode = 2
+button_mask = 3
+text = "Start"
+
+[node name="eopitois" type="Button" parent="TITLE/VBoxContainer" unique_id=1523513916]
+layout_mode = 2
+button_mask = 3
+text = "Options"
+
+[node name="quit" type="Button" parent="TITLE/VBoxContainer" unique_id=1416851070]
+layout_mode = 2
+button_mask = 3
+text = "leave"
+
+[node name="OPTIONS" type="Panel" parent="." unique_id=133066655]
+visible = false
+layout_mode = 0
+offset_left = 468.0
+offset_top = 281.0
+offset_right = 508.0
+offset_bottom = 321.0
+scale = Vector2(5.7779155, 8.15963)
+
+[node name="M_SLIDER" type="HSlider" parent="OPTIONS" unique_id=1375464902]
+layout_mode = 0
+offset_left = 5.192185
+offset_top = 10.523518
+offset_right = 154.28719
+offset_bottom = 28.108517
+scale = Vector2(0.205, 0.181)
+ticks_position = 1
+
+[node name="Back" type="Button" parent="OPTIONS" unique_id=566994340]
+layout_mode = 0
+offset_left = 6.403693
+offset_top = 26.471788
+offset_right = 56.403694
+offset_bottom = 57.471786
+scale = Vector2(0.56617045, 0.28644875)
+text = "BACK"
+
+[node name="Music" type="RichTextLabel" parent="OPTIONS" unique_id=1499612098]
+layout_mode = 0
+offset_left = 9.17286
+offset_top = 5.147294
+offset_right = 60.17286
+offset_bottom = 45.147293
+scale = Vector2(0.39631006, 0.2082234)
+text = "MUSIC"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="FX" type="RichTextLabel" parent="OPTIONS" unique_id=708195360]
+layout_mode = 0
+offset_left = 3.807603
+offset_top = 15.564433
+offset_right = 92.8076
+offset_bottom = 55.564434
+scale = Vector2(0.3784014, 0.21351571)
+text = "SOUNDS FX"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="FX_SLIDER" type="HSlider" parent="OPTIONS" unique_id=467072391]
+layout_mode = 0
+offset_left = 5.365255
+offset_top = 20.834278
+offset_right = 154.46025
+offset_bottom = 38.41928
+scale = Vector2(0.205, 0.181)
+ticks_position = 1
+
+[connection signal="button_up" from="TITLE/VBoxContainer/start" to="." method="_on_start_button_up"]
+[connection signal="button_up" from="TITLE/VBoxContainer/eopitois" to="." method="_on_eopitois_button_up"]
+[connection signal="button_up" from="TITLE/VBoxContainer/quit" to="." method="_on_quit_button_up"]
+[connection signal="drag_ended" from="OPTIONS/M_SLIDER" to="." method="_on_m_slider_drag_ended"]
+[connection signal="button_up" from="OPTIONS/Back" to="." method="_on_back_button_up"]

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://djiourbpg3maw"]
+
+[ext_resource type="Script" uid="uid://dxkdls6qqho6f" path="res://scripts/LevelButton.gd" id="1_6pb3k"]
+
+[node name="Control" type="Button" unique_id=957559581]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2051596, 0.23496565)
+text = "helo"
+script = ExtResource("1_6pb3k")

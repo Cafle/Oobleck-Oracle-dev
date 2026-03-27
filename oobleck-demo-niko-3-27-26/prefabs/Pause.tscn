@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://cbv10mqoehwnj"]
+
+[ext_resource type="Script" uid="uid://bo0cht25k8wtk" path="res://scripts/Menu.gd" id="1_254n7"]
+[ext_resource type="Theme" uid="uid://bpn64vvfosajt" path="res://pink_Slider.tres" id="2_jihm0"]
+
+[node name="PAUSE" type="Panel" unique_id=2088614349]
+process_mode = 3
+offset_left = 462.99997
+offset_top = 160.0
+offset_right = 502.99997
+offset_bottom = 200.0
+scale = Vector2(6.174151, 11.048177)
+script = ExtResource("1_254n7")
+
+[node name="Back" type="Button" parent="." unique_id=388598562]
+layout_mode = 0
+offset_left = 5.8307686
+offset_top = 30.774305
+offset_right = 55.83077
+offset_bottom = 61.774307
+scale = Vector2(0.55592227, 0.20568497)
+theme = ExtResource("2_jihm0")
+text = "BACK"
+
+[node name="FX" type="RichTextLabel" parent="." unique_id=2032853151]
+layout_mode = 0
+offset_left = 3.5632477
+offset_top = 12.128698
+offset_right = 92.56325
+offset_bottom = 52.1287
+scale = Vector2(0.3784014, 0.21351571)
+text = "SOUNDS FX"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="FX_SLIDER" type="HSlider" parent="." unique_id=1836987581]
+layout_mode = 0
+offset_left = 5.1829057
+offset_top = 17.197407
+offset_right = 154.27788
+offset_bottom = 34.782402
+scale = Vector2(0.205, 0.181)
+theme = ExtResource("2_jihm0")
+max_value = 1.5
+step = 0.001
+value = 0.75
+ticks_position = 1
+
+[node name="MUSIC" type="RichTextLabel" parent="." unique_id=1705688919]
+layout_mode = 0
+offset_left = 4.0491457
+offset_top = 2.5343554
+offset_right = 93.04915
+offset_bottom = 42.534355
+scale = Vector2(0.3784014, 0.21351571)
+text = "    Music"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="M_SLIDER" type="HSlider" parent="." unique_id=1202603102]
+layout_mode = 0
+offset_left = 5.1829042
+offset_top = 7.7840886
+offset_right = 154.27788
+offset_bottom = 25.36908
+scale = Vector2(0.205, 0.181)
+theme = ExtResource("2_jihm0")
+max_value = 1.5
+step = 0.001
+value = 0.75
+ticks_position = 1
+
+[node name="LVL SLC" type="Button" parent="." unique_id=1260696065]
+layout_mode = 0
+offset_left = 2.1055593
+offset_top = 21.723042
+offset_right = 68.10556
+offset_bottom = 52.72304
+scale = Vector2(0.55592227, 0.20568497)
+theme = ExtResource("2_jihm0")
+text = "LVL SEL"
+
+[connection signal="button_up" from="Back" to="." method="_on_back_button_up"]
+[connection signal="value_changed" from="FX_SLIDER" to="." method="_on_fx_slider_value_changed"]
+[connection signal="value_changed" from="M_SLIDER" to="." method="_on_m_slider_value_changed"]
+[connection signal="button_up" from="LVL SLC" to="." method="_on_lvl_slc_button_up"]
