@@ -4,13 +4,10 @@
 [ext_resource type="Script" uid="uid://ckcb2hdguwgof" path="res://levels/JACSPAW.gd" id="2_32mhh"]
 [ext_resource type="AudioStream" uid="uid://kq4jb7llhwg8" path="res://audio/Frilbo fralbo.mp3" id="3_ohbkr"]
 [ext_resource type="PackedScene" uid="uid://cilgmjtsolrfo" path="res://prefabs/Player.tscn" id="4_2j4y6"]
-[ext_resource type="Script" uid="uid://2kugn12bnkfe" path="res://prefabs/player.gd" id="5_gqfrg"]
 [ext_resource type="PackedScene" uid="uid://cbv10mqoehwnj" path="res://prefabs/Pause.tscn" id="5_vi6ws"]
 [ext_resource type="Texture2D" uid="uid://ck48dgi4hj0xd" path="res://Asset/Tilemap1.png" id="6_cr8f5"]
-[ext_resource type="PackedScene" uid="uid://bn3omt7rkogrr" path="res://prefabs/Fireball.tscn" id="6_dkril"]
+[ext_resource type="Script" uid="uid://nfur6pee4mfh" path="res://scripts/KILLLLL.gd" id="8_dkril"]
 [ext_resource type="PackedScene" uid="uid://bnh72wxuvmpif" path="res://prefabs/WIN.tscn" id="9_lbu4x"]
-[ext_resource type="Texture2D" uid="uid://d1t48slyjws7y" path="res://Asset/pngwing.com (6).png" id="10_vcl05"]
-[ext_resource type="Script" uid="uid://bqp4hvfe2t4m2" path="res://scripts/burn_logic.gd" id="11_nn0v1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gqfrg"]
 texture = ExtResource("6_cr8f5")
@@ -18,9 +15,9 @@ texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 1:0/0 = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, -1.3166561, -16, -16, -16, -16, 16, 16, 16)
 2:0/0 = 0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, -1.3166561, -16, -16, -16, -16, 16, 16, 16)
 3:0/0 = 0
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 4:0/0 = 0
@@ -28,9 +25,9 @@ texture_region_size = Vector2i(32, 32)
 5:0/0 = 0
 5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16.187286, 16.187284)
 6:0/0 = 0
-6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 14.2547, 0.21763039, -1.8498497, 16, -16, 16)
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, -16, -16, -16, 16)
 7:0/0 = 0
-7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, 2.2851028, 16, -14.2547035, 0.87051773)
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, -16, -16, -16, 16)
 8:0/0 = 0
 9:0/0 = 0
 10:0/0 = 0
@@ -52,7 +49,9 @@ texture_region_size = Vector2i(32, 32)
 4:1/0 = 0
 4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 5:1/0 = 0
+5:1/0/custom_data_0 = true
 6:1/0 = 0
+6:1/0/custom_data_0 = true
 7:1/0 = 0
 8:1/0 = 0
 9:1/0 = 0
@@ -101,12 +100,15 @@ texture_region_size = Vector2i(32, 32)
 16:3/0 = 0
 17:3/0 = 0
 0:4/0 = 0
+0:4/0/custom_data_0 = true
 1:4/0 = 0
+1:4/0/custom_data_0 = true
 2:4/0 = 0
+2:4/0/custom_data_0 = true
 3:4/0 = 0
+3:4/0/custom_data_0 = true
 4:4/0 = 0
 5:4/0 = 0
-5:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 6:4/0 = 0
 6:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 7:4/0 = 0
@@ -157,8 +159,11 @@ texture_region_size = Vector2i(32, 32)
 16:6/0 = 0
 17:6/0 = 0
 0:7/0 = 0
+0:7/0/custom_data_0 = true
 1:7/0 = 0
+1:7/0/custom_data_0 = true
 2:7/0 = 0
+2:7/0/custom_data_0 = true
 3:7/0 = 0
 4:7/0 = 0
 5:7/0 = 0
@@ -176,11 +181,16 @@ texture_region_size = Vector2i(32, 32)
 17:7/0 = 0
 0:8/0 = 0
 0:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.778107, -5.0054684, 4.896652, -5.0054684, 4.896652, 16.104553, -16.187286, 16.187284)
+0:8/0/custom_data_0 = true
 1:8/0 = 0
 1:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.778107, -5.0054684, 4.896652, -5.0054684, 4.896652, 16.104553, -16.187286, 16.187284)
+1:8/0/custom_data_0 = true
 2:8/0 = 0
+2:8/0/custom_data_0 = true
 3:8/0 = 0
+3:8/0/custom_data_0 = true
 4:8/0 = 0
+4:8/0/custom_data_0 = true
 5:8/0 = 0
 6:8/0 = 0
 7:8/0 = 0
@@ -352,16 +362,21 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_dkril"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
+physics_layer_1/collision_layer = 1
+custom_data_layer_0/name = "KILL"
+custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_gqfrg")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vcl05"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqfrg"]
+size = Vector2(113.37901, 56.38462)
 
 [node name="1" type="Node2D" unique_id=565638182]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=599153819]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=660398628]
-position = Vector2(170, 190)
+position = Vector2(-17, 382)
+scale = Vector2(0.47542801, 0.3053899)
 texture = ExtResource("1_b84ys")
 script = ExtResource("2_32mhh")
 
@@ -374,8 +389,6 @@ bus = &"Music"
 [node name="Node2D" parent="." unique_id=303184738 instance=ExtResource("4_2j4y6")]
 position = Vector2(-431.00003, 154.99997)
 rotation = 0.00018695461
-script = ExtResource("5_gqfrg")
-REF_FIREBALL = ExtResource("6_dkril")
 
 [node name="PAUSE" parent="." unique_id=2088614349 instance=ExtResource("5_vi6ws")]
 visible = false
@@ -385,24 +398,19 @@ offset_right = -86.0
 offset_bottom = -162.0
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1476880357]
+position = Vector2(0, 4)
 scale = Vector2(2, 2)
-tile_map_data = PackedByteArray("AADl/w0AAAAAAAAAAAD4/wMAAAAFAAAAAAD5/wMAAAAFAAAAAAD6/wMAAAAFAAAAAAD7/wMAAAAFAAAAAAD8/wMAAAAGAAAAAAD3/wMAAAAHAAAAAAD4/wQAAAAIAAEAAAD7/wQAAAAIAAEAAAD7/wUAAAAIAAIAAAD4/wUAAAAIAAIAAAA=")
+tile_map_data = PackedByteArray("AADl/w0AAAAAAAAAAAD3/wQAAAAAAAAAAAD4/wQAAAAFAAAAAAD5/wQAAAAGAAAAAAD6/wQAAAAHAAAAAAD7/wQAAAAFAAAAAAD8/wQAAAABAAAAAFD4/wMAAAABAAAAAAD5/wMAAAABAAAAAAD6/wMAAAABAAAAAAD7/wMAAAABAAAAAAD8/wMAAAACAAAAAFD3/wIAAAACAAAAAFD3/wMAAAAAAAEAAAD9/wQAAAAFAAEAAAD+/wQAAAAGAAEAAAD//wQAAAAFAAEAAAAAAAQAAAAGAAEAAAABAAQAAAAFAAEAAAACAAQAAAAFAAMAABADAAQAAAACAAAAAAAEAAMAAAACAAAAAAAEAAQAAAAAAAEAAGAFAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAFAAMAAAABAAAAAAAGAAMAAAABAAAAAAAHAAMAAAABAAAAAAAIAAMAAAABAAAAAAAHAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAD7/wIAAAAIAAUAAAD7/wEAAAAIAAIAAAD7////AAAIAAQAAAD7/wAAAAAIAAIAAAAFAAIAAAAIAAUAAAAFAAAAAAAIAAEAAAAFAAEAAAAIAAIAAAAIAAIAAAAIAAUAAAAIAAEAAAAIAAIAAAAIAAAAAAAIAAEAAAAEAP//AAAHAAAAAAAGAP3/AAAGAAEAAAAHAP3/AAAFAAEAAAAIAP3/AAAFAAEAAAAFAP3/AAAFAAEAAAAEAP3/AAAGAAEAAAD3/wUAAAAAAAAAAAD4/wUAAAAFAAAAAAD7/wUAAAAFAAAAAAD8/wUAAAAAAAEAAAD9/wUAAAABAAAAAAD+/wUAAAABAAAAAAD//wUAAAABAAAAAAAAAAUAAAABAAAAAAABAAUAAAABAAAAAAACAAUAAAABAAAAAAADAAUAAAAAAAEAAGAEAAUAAAAAAAAAAAAFAAUAAAAAAAAAAAAGAAUAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAAUAAAAAAAAAAAADAP3/AAAFAAEAAAACAP3/AAAFAAIAABADAP7/AAAHAAAAAAACAP7/AAAHAAEAABACAP//AAAHAAIAABACAAAAAAAHAAEAABACAAEAAAAHAAIAABACAAIAAAAHAAIAABD4/wIAAAAIAAUAAAD4/wEAAAAIAAQAAAAFAP7/AAAFAAAAAAAEAP7/AAAFAAAAAAAFAP//AAAFAAAAAAAGAP//AAAFAAAAAAAGAP7/AAAFAAAAAAAHAP7/AAAFAAAAAAAHAP//AAAFAAAAAAAIAP//AAAFAAAAAAAIAP7/AAAFAAAAAAD//wIAAAADAAAAAGAAAAIAAAADAAAAAFACAAMAAAAHAAEAABD+/wMAAAACAAQAAAD9/wMAAAACAAQAAAA=")
 tile_set = SubResource("TileSet_dkril")
 
 [node name="Win" parent="." unique_id=291223014 instance=ExtResource("9_lbu4x")]
-position = Vector2(-286, 160)
+position = Vector2(482, 164)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1564895359 groups=["burnable"]]
-position = Vector2(148.00002, 18)
-scale = Vector2(0.82322776, 0.22492804)
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("11_nn0v1")
+[node name="Area2D" type="Area2D" parent="." unique_id=643205547]
+script = ExtResource("8_dkril")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1625073602]
-scale = Vector2(30.93608, 189.62889)
-shape = SubResource("RectangleShape2D_vcl05")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1535495526]
+position = Vector2(-127.68951, 224.1923)
+shape = SubResource("RectangleShape2D_gqfrg")
 
-[node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D" unique_id=269811635 groups=["burnable"]]
-scale = Vector2(1.0000001, 1)
-texture = ExtResource("10_vcl05")
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

@@ -13,7 +13,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Pause"):
 		get_tree().paused = true
-		get_tree().get_root().get_node("Node2D/PAUSE").show()
+		print(get_tree().get_root().name)
+		get_tree().get_root().get_node(get_tree().current_scene.name + "/PAUSE").show()
 	pass
 
 
@@ -28,7 +29,7 @@ func _on_fx_slider_value_changed(value: float) -> void:
 
 
 func _on_back_button_up() -> void:
-	get_tree().get_root().get_node("Node2D/PAUSE").hide()
+	get_tree().get_root().get_node(get_tree().current_scene.name +"/PAUSE").hide()
 	get_tree().paused = false
 	pass # Replace with function body.
 
