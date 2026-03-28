@@ -7,8 +7,10 @@
 [ext_resource type="Script" uid="uid://2kugn12bnkfe" path="res://prefabs/player.gd" id="5_gqfrg"]
 [ext_resource type="PackedScene" uid="uid://cbv10mqoehwnj" path="res://prefabs/Pause.tscn" id="5_vi6ws"]
 [ext_resource type="Texture2D" uid="uid://ck48dgi4hj0xd" path="res://Asset/Tilemap1.png" id="6_cr8f5"]
-[ext_resource type="PackedScene" uid="uid://bn3omt7rkogrr" path="res://prefabs/fireball_demo.tscn" id="6_dkril"]
+[ext_resource type="PackedScene" uid="uid://bn3omt7rkogrr" path="res://prefabs/Fireball.tscn" id="6_dkril"]
 [ext_resource type="PackedScene" uid="uid://bnh72wxuvmpif" path="res://prefabs/WIN.tscn" id="9_lbu4x"]
+[ext_resource type="Texture2D" uid="uid://d1t48slyjws7y" path="res://Asset/pngwing.com (6).png" id="10_vcl05"]
+[ext_resource type="Script" uid="uid://bqp4hvfe2t4m2" path="res://scripts/burn_logic.gd" id="11_nn0v1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gqfrg"]
 texture = ExtResource("6_cr8f5")
@@ -352,6 +354,8 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_gqfrg")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vcl05"]
+
 [node name="1" type="Node2D" unique_id=565638182]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=599153819]
@@ -387,3 +391,18 @@ tile_set = SubResource("TileSet_dkril")
 
 [node name="Win" parent="." unique_id=291223014 instance=ExtResource("9_lbu4x")]
 position = Vector2(-286, 160)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1564895359 groups=["burnable"]]
+position = Vector2(148.00002, 18)
+scale = Vector2(0.82322776, 0.22492804)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("11_nn0v1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1625073602]
+scale = Vector2(30.93608, 189.62889)
+shape = SubResource("RectangleShape2D_vcl05")
+
+[node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D" unique_id=269811635 groups=["burnable"]]
+scale = Vector2(1.0000001, 1)
+texture = ExtResource("10_vcl05")

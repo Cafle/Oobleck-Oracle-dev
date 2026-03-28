@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cilgmjtsolrfo"]
 
-[ext_resource type="Script" uid="uid://dygmfayg65klj" path="res://prefabs/player1.gd" id="1_glu7e"]
+[ext_resource type="Script" uid="uid://2kugn12bnkfe" path="res://prefabs/player.gd" id="1_glu7e"]
+[ext_resource type="PackedScene" uid="uid://bn3omt7rkogrr" path="res://prefabs/Fireball.tscn" id="2_ay6yh"]
 [ext_resource type="Texture2D" uid="uid://hyvb5j5qkgqq" path="res://Asset/player-Sheet.png" id="2_glu7e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glu7e"]
@@ -207,6 +208,7 @@ animations = [{
 [node name="Node2D" type="CharacterBody2D" unique_id=303184738]
 scale = Vector2(4.351378, 3.4714208)
 script = ExtResource("1_glu7e")
+REF_FIREBALL = ExtResource("2_ay6yh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=897705049]
 position = Vector2(0.34471828, 3.4567962)

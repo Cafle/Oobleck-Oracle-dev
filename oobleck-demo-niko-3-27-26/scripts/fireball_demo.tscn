@@ -1,15 +1,14 @@
-[gd_scene format=3 uid="uid://bn3omt7rkogrr"]
+[gd_scene format=3 uid="uid://sminbwoum48e"]
 
-[ext_resource type="Script" uid="uid://dwlbk0x3bsx4j" path="res://prefabs/fireball_demo.gd" id="1_mqod7"]
+[ext_resource type="Script" uid="uid://dwlbk0x3bsx4j" path="res://scripts/fireball_demo.gd" id="1_mqod7"]
 [ext_resource type="Texture2D" uid="uid://byfs3gvlkaq8d" path="res://Asset/pngwing.com.png" id="1_pco8q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mqod7"]
 radius = 5.0990195
 
-[node name="Fireball_demo" type="Area2D" unique_id=1157763256]
+[node name="Fireball_demo" type="Area2D" unique_id=1157763256 groups=["burnable"]]
 light_mask = 2
 visibility_layer = 2
-scale = Vector2(2, 2)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_mqod7")

@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 LevelManager="*uid://nsdcmgoiwufl"
 
+[global_group]
+
+burnable="bruns"
+
 [input]
 
 up={

@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://bn3omt7rkogrr"]
+
+[ext_resource type="Script" uid="uid://dwlbk0x3bsx4j" path="res://scripts/fireball_demo.gd" id="1_51xsj"]
+[ext_resource type="Texture2D" uid="uid://cbwxuk1wi7n5u" path="res://Asset/Projectiles-Sheet.png" id="2_t62ju"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6rgl"]
+atlas = ExtResource("2_t62ju")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjyoj"]
+atlas = ExtResource("2_t62ju")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwyit"]
+atlas = ExtResource("2_t62ju")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csp30"]
+atlas = ExtResource("2_t62ju")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_277us"]
+atlas = ExtResource("2_t62ju")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pn5v2"]
+atlas = ExtResource("2_t62ju")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pco8q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6rgl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjyoj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwyit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csp30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_277us")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pn5v2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mqod7"]
+radius = 5.0990195
+
+[node name="Fireball" type="Area2D" unique_id=1157763256 groups=["burnable"]]
+light_mask = 2
+visibility_layer = 2
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_51xsj")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1237166569]
+position = Vector2(-4.7683716e-07, 5.9604645e-08)
+sprite_frames = SubResource("SpriteFrames_pco8q")
+autoplay = "default"
+frame_progress = 0.37284896
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=553758173]
+position = Vector2(2, 0)
+shape = SubResource("CircleShape2D_mqod7")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=730597309]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
