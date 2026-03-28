@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bvjl8g14pnek6"]
+[gd_scene format=4 uid="uid://bvjl8g14pnek6"]
 
 [ext_resource type="Texture2D" uid="uid://b28s64txduu2y" path="res://Asset/pngwing.com (5).png" id="1_b84ys"]
 [ext_resource type="Script" uid="uid://ckcb2hdguwgof" path="res://levels/JACSPAW.gd" id="2_32mhh"]
@@ -9,22 +9,19 @@
 [ext_resource type="Texture2D" uid="uid://ck48dgi4hj0xd" path="res://Asset/Tilemap1.png" id="6_cr8f5"]
 [ext_resource type="PackedScene" uid="uid://bn3omt7rkogrr" path="res://prefabs/fireball_demo.tscn" id="6_dkril"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohbkr"]
-size = Vector2(162.90158, 51.131958)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b84ys"]
-size = Vector2(61.734444, 20)
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gqfrg"]
 texture = ExtResource("6_cr8f5")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 1:0/0 = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 5:0/0 = 0
 6:0/0 = 0
 7:0/0 = 0
@@ -39,10 +36,15 @@ texture_region_size = Vector2i(32, 32)
 16:0/0 = 0
 17:0/0 = 0
 0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 5:1/0 = 0
 6:1/0 = 0
 7:1/0 = 0
@@ -98,7 +100,9 @@ texture_region_size = Vector2i(32, 32)
 3:4/0 = 0
 4:4/0 = 0
 5:4/0 = 0
+5:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 6:4/0 = 0
+6:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 7:4/0 = 0
 8:4/0 = 0
 9:4/0 = 0
@@ -114,7 +118,9 @@ texture_region_size = Vector2i(32, 32)
 3:5/0 = 0
 4:5/0 = 0
 5:5/0 = 0
+5:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.778107, -5.0054684, 4.896652, -5.0054684, 4.896652, 16.104553, -16.187286, 16.187284)
 6:5/0 = 0
+6:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.778107, -5.0054684, 4.896652, -5.0054684, 4.896652, 16.104553, -16.187286, 16.187284)
 7:5/0 = 0
 8:5/0 = 0
 9:5/0 = 0
@@ -163,7 +169,9 @@ texture_region_size = Vector2i(32, 32)
 16:7/0 = 0
 17:7/0 = 0
 0:8/0 = 0
+0:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.778107, -5.0054684, 4.896652, -5.0054684, 4.896652, 16.104553, -16.187286, 16.187284)
 1:8/0 = 0
+1:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.778107, -5.0054684, 4.896652, -5.0054684, 4.896652, 16.104553, -16.187286, 16.187284)
 2:8/0 = 0
 3:8/0 = 0
 4:8/0 = 0
@@ -353,22 +361,6 @@ script = ExtResource("2_32mhh")
 position = Vector2(79.63047, 246.76651)
 scale = Vector2(6.3439503, 1.3128481)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D" unique_id=1355335563]
-position = Vector2(-12.823275, -171.63506)
-shape = SubResource("RectangleShape2D_ohbkr")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite2D/StaticBody2D" unique_id=1282796546]
-position = Vector2(-20.748972, -0.5838318)
-rotation = -1.575826
-scale = Vector2(4.711954, 1.3037387)
-shape = SubResource("RectangleShape2D_ohbkr")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Sprite2D/StaticBody2D" unique_id=2059127275]
-position = Vector2(-92.470856, -293.0777)
-rotation = -1.575826
-scale = Vector2(3.0291846, 0.35275808)
-shape = SubResource("RectangleShape2D_ohbkr")
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=895483592]
 process_mode = 3
 stream = ExtResource("3_ohbkr")
@@ -378,11 +370,6 @@ bus = &"Music"
 [node name="Area2D" type="Area2D" parent="." unique_id=1096704055]
 position = Vector2(916, 118.99999)
 scale = Vector2(1.9716071, 0.55518067)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=782149046]
-position = Vector2(-265.2658, -475.52087)
-scale = Vector2(0.917497, -10.251123)
-shape = SubResource("RectangleShape2D_b84ys")
 
 [node name="Node2D" parent="." unique_id=303184738 instance=ExtResource("4_2j4y6")]
 position = Vector2(-431.00003, 154.99997)
@@ -398,7 +385,8 @@ offset_right = -86.0
 offset_bottom = -162.0
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1476880357]
-tile_map_data = PackedByteArray(0, 0, 229, 255, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 235, 255, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 235, 255, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 235, 255, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 235, 255, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AADl/w0AAAAAAAAAAADr/woAAAAAAAAAAADr/wkAAAAAAAAAAADr/wYAAAAAAAAAAADr/wgAAAAAAAAAAADu/wcAAAAAAAAAAADv/wcAAAAAAAAAAADw/wcAAAAAAAAAAADx/wcAAAAAAAAAAADy/wcAAAAAAAAAAADz/wcAAAAAAAAAAAD0/wcAAAAAAAAAAAD1/wcAAAAAAAAAAAD2/wcAAAAAAAAAAAD3/wcAAAAAAAAAAADu/wYAAAABAAAAAADv/wYAAAABAAAAAADw/wYAAAABAAAAAADx/wYAAAABAAAAAADy/wYAAAABAAAAAADz/wYAAAABAAAAAAD0/wYAAAABAAAAAAD1/wYAAAABAAAAAAD2/wYAAAABAAAAAAD3/wYAAAABAAAAAAD5/wMAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_dkril")
 
 [connection signal="body_shape_exited" from="Area2D" to="Sprite2D" method="_on_area_2d_body_shape_exited"]
