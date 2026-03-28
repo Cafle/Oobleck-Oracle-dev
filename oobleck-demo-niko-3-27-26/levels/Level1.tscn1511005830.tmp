@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bvjl8g14pnek6"]
+
+[ext_resource type="Texture2D" uid="uid://b28s64txduu2y" path="res://Asset/pngwing.com (5).png" id="1_b84ys"]
+[ext_resource type="Script" uid="uid://ckcb2hdguwgof" path="res://levels/JACSPAW.gd" id="2_32mhh"]
+[ext_resource type="AudioStream" uid="uid://kq4jb7llhwg8" path="res://audio/Frilbo fralbo.mp3" id="3_ohbkr"]
+[ext_resource type="PackedScene" uid="uid://cilgmjtsolrfo" path="res://prefabs/Player.tscn" id="4_2j4y6"]
+[ext_resource type="PackedScene" uid="uid://cbv10mqoehwnj" path="res://prefabs/Pause.tscn" id="5_vi6ws"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohbkr"]
+size = Vector2(162.90158, 51.131958)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b84ys"]
+size = Vector2(61.734444, 20)
+
+[node name="Node2D" type="Node2D" unique_id=565638182]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=599153819]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=660398628]
+position = Vector2(0, 200)
+texture = ExtResource("1_b84ys")
+script = ExtResource("2_32mhh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D" unique_id=708217079]
+position = Vector2(79.63047, 246.76651)
+scale = Vector2(6.3439503, 1.3128481)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D" unique_id=1355335563]
+position = Vector2(-12.823275, -171.63506)
+shape = SubResource("RectangleShape2D_ohbkr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite2D/StaticBody2D" unique_id=1282796546]
+position = Vector2(23.545195, -257.27768)
+rotation = -1.575826
+scale = Vector2(4.711954, 1.3037387)
+shape = SubResource("RectangleShape2D_ohbkr")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Sprite2D/StaticBody2D" unique_id=2059127275]
+position = Vector2(-94.83531, -271.75003)
+rotation = -1.575826
+scale = Vector2(3.0291846, 0.35275808)
+shape = SubResource("RectangleShape2D_ohbkr")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=895483592]
+process_mode = 3
+stream = ExtResource("3_ohbkr")
+autoplay = true
+bus = &"Music"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1096704055]
+position = Vector2(916, 118.99999)
+scale = Vector2(1.9716071, 0.55518067)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=782149046]
+position = Vector2(-265.2658, -475.52087)
+scale = Vector2(0.917497, -10.251123)
+shape = SubResource("RectangleShape2D_b84ys")
+
+[node name="Node2D" parent="." unique_id=303184738 instance=ExtResource("4_2j4y6")]
+position = Vector2(-431.00003, 154.99997)
+rotation = 0.00018695461
+
+[node name="PAUSE" parent="." unique_id=2088614349 instance=ExtResource("5_vi6ws")]
+visible = false
+offset_left = -126.0
+offset_top = -202.0
+offset_right = -86.0
+offset_bottom = -162.0
+
+[connection signal="body_shape_exited" from="Area2D" to="Sprite2D" method="_on_area_2d_body_shape_exited"]
+[connection signal="mouse_shape_exited" from="Area2D" to="Sprite2D" method="_on_area_2d_mouse_shape_exited"]
