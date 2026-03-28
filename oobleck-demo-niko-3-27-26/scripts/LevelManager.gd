@@ -12,3 +12,11 @@ func _load_level(level_to_load: int) -> String:
 	if level_to_load > max_level:
 		return "res://credits.tscn"
 	return str("res://levels/Level", level_to_load,".tscn")
+	
+func advance_level() -> void:
+	var next = current_level + 1
+	_unlock_level(next)
+	current_level = next
+	get_tree().change_scene_to_file(_load_level(next))
+	
+		

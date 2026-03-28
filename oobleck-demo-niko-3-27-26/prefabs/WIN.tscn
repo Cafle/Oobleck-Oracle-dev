@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bnh72wxuvmpif"]
+
+[ext_resource type="Texture2D" uid="uid://ck48dgi4hj0xd" path="res://Asset/Tilemap1.png" id="1_rss0s"]
+[ext_resource type="Script" uid="uid://bw0daoqjmx44q" path="res://prefabs/WIN.gd" id="1_v1x8a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rbtl5"]
+size = Vector2(26, 28.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1x8a"]
+atlas = ExtResource("1_rss0s")
+region = Rect2(128, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1e86"]
+atlas = ExtResource("1_rss0s")
+region = Rect2(128, 224, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rbtl5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1x8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1e86")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Win" type="Area2D" unique_id=291223014]
+scale = Vector2(2, 2)
+script = ExtResource("1_v1x8a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1824230555]
+position = Vector2(0, 1.25)
+shape = SubResource("RectangleShape2D_rbtl5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1153618497]
+sprite_frames = SubResource("SpriteFrames_rbtl5")
+autoplay = "default"
+frame = 1
+frame_progress = 0.059815254
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

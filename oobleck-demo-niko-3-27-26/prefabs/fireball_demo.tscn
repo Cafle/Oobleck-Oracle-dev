@@ -9,6 +9,7 @@ radius = 5.0990195
 [node name="Fireball_demo" type="Area2D" unique_id=1157763256]
 light_mask = 2
 visibility_layer = 2
+scale = Vector2(2, 2)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_mqod7")

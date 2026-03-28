@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cbv10mqoehwnj" path="res://prefabs/Pause.tscn" id="5_vi6ws"]
 [ext_resource type="Texture2D" uid="uid://ck48dgi4hj0xd" path="res://Asset/Tilemap1.png" id="6_cr8f5"]
 [ext_resource type="PackedScene" uid="uid://bn3omt7rkogrr" path="res://prefabs/fireball_demo.tscn" id="6_dkril"]
+[ext_resource type="PackedScene" uid="uid://bnh72wxuvmpif" path="res://prefabs/WIN.tscn" id="9_lbu4x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gqfrg"]
 texture = ExtResource("6_cr8f5")
@@ -23,8 +24,11 @@ texture_region_size = Vector2i(32, 32)
 4:0/0 = 0
 4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16.187286, 16.187284)
 6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 14.2547, 0.21763039, -1.8498497, 16, -16, 16)
 7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, 2.2851028, 16, -14.2547035, 0.87051773)
 8:0/0 = 0
 9:0/0 = 0
 10:0/0 = 0
@@ -348,28 +352,20 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_gqfrg")
 
-[node name="Node2D" type="Node2D" unique_id=565638182]
+[node name="1" type="Node2D" unique_id=565638182]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=599153819]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=660398628]
-position = Vector2(0, 200)
+position = Vector2(170, 190)
 texture = ExtResource("1_b84ys")
 script = ExtResource("2_32mhh")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D" unique_id=708217079]
-position = Vector2(79.63047, 246.76651)
-scale = Vector2(6.3439503, 1.3128481)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=895483592]
 process_mode = 3
 stream = ExtResource("3_ohbkr")
 autoplay = true
 bus = &"Music"
-
-[node name="Area2D" type="Area2D" parent="." unique_id=1096704055]
-position = Vector2(916, 118.99999)
-scale = Vector2(1.9716071, 0.55518067)
 
 [node name="Node2D" parent="." unique_id=303184738 instance=ExtResource("4_2j4y6")]
 position = Vector2(-431.00003, 154.99997)
@@ -386,8 +382,8 @@ offset_bottom = -162.0
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1476880357]
 scale = Vector2(2, 2)
-tile_map_data = PackedByteArray("AADl/w0AAAAAAAAAAADr/woAAAAAAAAAAADr/wkAAAAAAAAAAADr/wYAAAAAAAAAAADr/wgAAAAAAAAAAADu/wcAAAAAAAAAAADv/wcAAAAAAAAAAADw/wcAAAAAAAAAAADx/wcAAAAAAAAAAADy/wcAAAAAAAAAAADz/wcAAAAAAAAAAAD0/wcAAAAAAAAAAAD1/wcAAAAAAAAAAAD2/wcAAAAAAAAAAAD3/wcAAAAAAAAAAADu/wYAAAABAAAAAADv/wYAAAABAAAAAADw/wYAAAABAAAAAADx/wYAAAABAAAAAADy/wYAAAABAAAAAADz/wYAAAABAAAAAAD0/wYAAAABAAAAAAD1/wYAAAABAAAAAAD2/wYAAAABAAAAAAD3/wYAAAABAAAAAAD5/wMAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AADl/w0AAAAAAAAAAAD4/wMAAAAFAAAAAAD5/wMAAAAFAAAAAAD6/wMAAAAFAAAAAAD7/wMAAAAFAAAAAAD8/wMAAAAGAAAAAAD3/wMAAAAHAAAAAAD4/wQAAAAIAAEAAAD7/wQAAAAIAAEAAAD7/wUAAAAIAAIAAAD4/wUAAAAIAAIAAAA=")
 tile_set = SubResource("TileSet_dkril")
 
-[connection signal="body_shape_exited" from="Area2D" to="Sprite2D" method="_on_area_2d_body_shape_exited"]
-[connection signal="mouse_shape_exited" from="Area2D" to="Sprite2D" method="_on_area_2d_mouse_shape_exited"]
+[node name="Win" parent="." unique_id=291223014 instance=ExtResource("9_lbu4x")]
+position = Vector2(-286, 160)
