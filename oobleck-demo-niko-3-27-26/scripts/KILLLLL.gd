@@ -12,5 +12,5 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	get_tree().reload_current_scene()
+	get_node(get_tree().current_scene.name + "/PLAYER").set_
 	pass # Replace with function body.

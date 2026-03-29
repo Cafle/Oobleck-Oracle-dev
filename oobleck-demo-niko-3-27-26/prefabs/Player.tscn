@@ -205,7 +205,7 @@ animations = [{
 "speed": 24.0
 }]
 
-[node name="Node2D" type="CharacterBody2D" unique_id=303184738]
+[node name="PLAYER" type="CharacterBody2D" unique_id=303184738]
 scale = Vector2(4.351378, 3.4714208)
 script = ExtResource("1_glu7e")
 REF_FIREBALL = ExtResource("2_ay6yh")
