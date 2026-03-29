@@ -8,7 +8,7 @@ const JUMP_VELOCITY = -400.0
 const WALL_VELOCITY = 800
 const WALL_JUMP_TIME = 0.1
 
-var moving = true
+var dead = false
 var facing = 1
 var vol_x = 0.0
 var vol_y = 0.0
@@ -70,9 +70,10 @@ func _physics_process(delta: float) -> void:
 		else:
 			animated_sprite.play("jump")
 	
-	# Gravity
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+	if not dead:
+		# Gravity
+		if not is_on_floor():
+			velocity += get_gravity() * delta
 	
 	vol_x = velocity.x
 	vol_y = velocity.y
@@ -96,21 +97,22 @@ func _physics_process(delta: float) -> void:
 	
 	# Attack
 	if Input.is_action_just_pressed("attack"):
-		if not is_attacking:
+		if not is_attacking and not dead:
 			animated_sprite.play("attack")
 			is_attacking = true
-	
-	# Horizontal movement
-	if wall_jump_timer > 0:
-		# Keep momentum during wall jump
-		velocity.x = vol_x
-	else:
-		if direction != 0:
-			velocity.x = direction * SPEED
+
+	if not dead:	
+		# Horizontal movement
+		if wall_jump_timer > 0:
+			# Keep momentum during wall jump
+			velocity.x = vol_x
 		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
+			if direction != 0:
+				velocity.x = direction * SPEED
+			else:
+				velocity.x = move_toward(velocity.x, 0, SPEED)
 	
-	if moving:
+	
 		# Apply vertical velocity
 		velocity.y = vol_y
 		
