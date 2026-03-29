@@ -8,7 +8,7 @@ const JUMP_VELOCITY = -400.0
 const WALL_VELOCITY = 800
 const WALL_JUMP_TIME = 0.1
 
-var shots = 0
+var moving = true
 var facing = 1
 var vol_x = 0.0
 var vol_y = 0.0
@@ -110,11 +110,12 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 	
-	# Apply vertical velocity
-	velocity.y = vol_y
-	
-	# Clamp speed
-	velocity.x = clamp(velocity.x, -MAX_SPEED_X, MAX_SPEED_X)
-	velocity.y = clamp(velocity.y, -400, 400)
+	if moving:
+		# Apply vertical velocity
+		velocity.y = vol_y
+		
+		# Clamp speed
+		velocity.x = clamp(velocity.x, -MAX_SPEED_X, MAX_SPEED_X)
+		velocity.y = clamp(velocity.y, -400, 400)
 
 	move_and_slide()

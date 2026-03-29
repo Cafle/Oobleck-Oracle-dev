@@ -12,5 +12,7 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	get_node(get_tree().current_scene.name + "/PLAYER").set_
+	$CharacterBody2D PLAYER = get_node("../PLAYER")
+	#get_tree().get_root().get_node(get_tree().current_scene.name +"/PAUSE").hide()
+	get_node("../PLAYER").position = get_node("../SPAWN").position
 	pass # Replace with function body.
