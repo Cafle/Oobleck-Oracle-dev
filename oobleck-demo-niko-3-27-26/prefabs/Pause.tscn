@@ -1,88 +1,103 @@
 [gd_scene format=3 uid="uid://cbv10mqoehwnj"]
 
 [ext_resource type="Script" uid="uid://bo0cht25k8wtk" path="res://scripts/Menu.gd" id="1_254n7"]
+[ext_resource type="Texture2D" uid="uid://dmowtoc4spsyq" path="res://Asset/ui_background.png" id="1_upyyo"]
 [ext_resource type="Theme" uid="uid://bpn64vvfosajt" path="res://pink_Slider.tres" id="2_jihm0"]
+[ext_resource type="Texture2D" uid="uid://gu03l0dm3fcy" path="res://Asset/button-Sheet.png" id="3_pehjw"]
+[ext_resource type="Texture2D" uid="uid://dmn7mqg05rwvq" path="res://Asset/ui-export.png" id="4_upyyo"]
 
-[node name="PAUSE" type="Panel" unique_id=2088614349]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcam4"]
+atlas = ExtResource("3_pehjw")
+region = Rect2(18.032713, 36.014137, 58.97953, 23.967361)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpy68"]
+atlas = ExtResource("3_pehjw")
+region = Rect2(117.97817, 37.010387, 58.05111, 23.005188)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ilmm"]
+atlas = ExtResource("4_upyyo")
+region = Rect2(14, 2, 11, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ah2b"]
+atlas = ExtResource("4_upyyo")
+region = Rect2(30, 1, 10, 12)
+
+[node name="PAUSE" type="Sprite2D" unique_id=159365416]
 process_mode = 3
-offset_left = 462.99997
-offset_top = 160.0
-offset_right = 502.99997
-offset_bottom = 200.0
-scale = Vector2(6.174151, 11.048177)
+position = Vector2(184, 190)
+scale = Vector2(3.346666, 3.5048156)
+texture = ExtResource("1_upyyo")
 script = ExtResource("1_254n7")
 
-[node name="Back" type="Button" parent="." unique_id=388598562]
-layout_mode = 0
-offset_left = 5.8307686
-offset_top = 30.774305
-offset_right = 55.83077
-offset_bottom = 61.774307
-scale = Vector2(0.55592227, 0.20568497)
-theme = ExtResource("2_jihm0")
-text = "BACK"
+[node name="Back" type="TextureButton" parent="." unique_id=791257461]
+offset_left = -32.561573
+offset_top = 23.50295
+offset_right = 25.438427
+offset_bottom = 54.50295
+scale = Vector2(0.89541394, 0.7213573)
+texture_normal = SubResource("AtlasTexture_tcam4")
+texture_pressed = SubResource("AtlasTexture_wpy68")
 
-[node name="FX" type="RichTextLabel" parent="." unique_id=2032853151]
+[node name="Label" type="Label" parent="Back" unique_id=1830226796]
 layout_mode = 0
-offset_left = 3.5632477
-offset_top = 12.128698
-offset_right = 92.56325
-offset_bottom = 52.1287
-scale = Vector2(0.3784014, 0.21351571)
-text = "SOUNDS FX"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
+offset_left = 9.782089
+offset_top = -0.42784122
+offset_right = 49.78209
+offset_bottom = 22.572159
+text = "Back"
 
-[node name="FX_SLIDER" type="HSlider" parent="." unique_id=1836987581]
-layout_mode = 0
-offset_left = 5.1829057
-offset_top = 17.197407
-offset_right = 154.27788
-offset_bottom = 34.782402
-scale = Vector2(0.205, 0.181)
-theme = ExtResource("2_jihm0")
-max_value = 1.5
-step = 0.001
-value = 0.75
-ticks_position = 1
+[node name="FX" type="Sprite2D" parent="." unique_id=2008753478]
+position = Vector2(-29.01348, -11.585431)
+scale = Vector2(1.411744, 1.2766991)
+texture = SubResource("AtlasTexture_1ilmm")
 
-[node name="MUSIC" type="RichTextLabel" parent="." unique_id=1705688919]
-layout_mode = 0
-offset_left = 4.0491457
-offset_top = 2.5343554
-offset_right = 93.04915
-offset_bottom = 42.534355
-scale = Vector2(0.3784014, 0.21351571)
-text = "    Music"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-
-[node name="M_SLIDER" type="HSlider" parent="." unique_id=1202603102]
-layout_mode = 0
-offset_left = 5.1829042
-offset_top = 7.7840886
-offset_right = 154.27788
-offset_bottom = 25.36908
-scale = Vector2(0.205, 0.181)
+[node name="FX_SLIDER" type="HSlider" parent="." unique_id=1257142745]
+offset_left = -14.242981
+offset_top = -15.615147
+offset_right = 134.85202
+offset_bottom = 1.9698563
+scale = Vector2(0.22764233, 0.49816346)
 theme = ExtResource("2_jihm0")
 max_value = 1.5
 step = 0.001
 value = 0.75
 ticks_position = 1
 
-[node name="LVL SLC" type="Button" parent="." unique_id=1260696065]
-layout_mode = 0
-offset_left = 2.1055593
-offset_top = 21.723042
-offset_right = 68.10556
-offset_bottom = 52.72304
-scale = Vector2(0.55592227, 0.20568497)
+[node name="M" type="Sprite2D" parent="." unique_id=2051285052]
+position = Vector2(-30.068523, -34.25258)
+scale = Vector2(1.411744, 1.2766991)
+texture = SubResource("AtlasTexture_5ah2b")
+
+[node name="M_SLIDER" type="HSlider" parent="." unique_id=1941844882]
+offset_left = -13.71547
+offset_top = -38.282295
+offset_right = 135.37953
+offset_bottom = -20.697292
+scale = Vector2(0.22764233, 0.49816328)
 theme = ExtResource("2_jihm0")
+max_value = 1.5
+step = 0.001
+value = 0.75
+ticks_position = 1
+
+[node name="lvl slc" type="TextureButton" parent="." unique_id=790664628]
+offset_left = -32.56156
+offset_top = 1.7700857
+offset_right = 25.438438
+offset_bottom = 32.770084
+scale = Vector2(0.89541394, 0.7213573)
+texture_normal = SubResource("AtlasTexture_tcam4")
+texture_pressed = SubResource("AtlasTexture_wpy68")
+
+[node name="Label" type="Label" parent="lvl slc" unique_id=411368682]
+layout_mode = 0
+offset_left = 0.22832012
+offset_top = -1.2639285
+offset_right = 58.22832
+offset_bottom = 21.73607
 text = "LVL SEL"
 
 [connection signal="button_up" from="Back" to="." method="_on_back_button_up"]
 [connection signal="value_changed" from="FX_SLIDER" to="." method="_on_fx_slider_value_changed"]
 [connection signal="value_changed" from="M_SLIDER" to="." method="_on_m_slider_value_changed"]
-[connection signal="button_up" from="LVL SLC" to="." method="_on_lvl_slc_button_up"]
+[connection signal="button_up" from="lvl slc" to="." method="_on_lvl_slc_button_up"]

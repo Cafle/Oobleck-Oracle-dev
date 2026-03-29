@@ -22,7 +22,4 @@ bus = &"Music"
 
 [node name="PAUSE" parent="." unique_id=2088614349 instance=ExtResource("2_f5x84")]
 visible = false
-offset_left = -113.00003
-offset_top = -172.0
-offset_right = -73.00003
-offset_bottom = -132.0
+position = Vector2(0, 0)
