@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://cl5msiq36qhhg"]
+
+[ext_resource type="Texture2D" uid="uid://cbwxuk1wi7n5u" path="res://Asset/Projectiles-Sheet.png" id="1_7truq"]
+[ext_resource type="Script" uid="uid://dcvio85ekppwk" path="res://prefabs/iceball.gd" id="1_cvwyk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rw5a"]
+atlas = ExtResource("1_7truq")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58ixf"]
+atlas = ExtResource("1_7truq")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwvxv"]
+atlas = ExtResource("1_7truq")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cugs7"]
+atlas = ExtResource("1_7truq")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cj63m"]
+atlas = ExtResource("1_7truq")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vkp8"]
+atlas = ExtResource("1_7truq")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x0m6o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rw5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58ixf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwvxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cugs7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cj63m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vkp8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_20n2a"]
+radius = 5.0990195
+
+[node name="iceball" type="Area2D" unique_id=881879925]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_cvwyk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=663713615]
+sprite_frames = SubResource("SpriteFrames_x0m6o")
+autoplay = "default"
+frame = 1
+frame_progress = 0.10533504
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1122458827]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=499913843]
+position = Vector2(2, 0)
+shape = SubResource("CircleShape2D_20n2a")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

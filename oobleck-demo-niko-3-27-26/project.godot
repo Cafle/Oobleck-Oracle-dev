@@ -18,10 +18,12 @@ config/icon="res://icon.svg"
 [autoload]
 
 LevelManager="*uid://nsdcmgoiwufl"
+PowerManager="*uid://c0in623ar2w1t"
 
 [global_group]
 
 burnable="bruns"
+freezable=""
 
 [input]
 

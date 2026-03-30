@@ -99,22 +99,29 @@ shape = SubResource("RectangleShape2D_dvk11")
 
 [node name="LeftLedge" type="RayCast2D" parent="." unique_id=499709658]
 target_position = Vector2(-10, 15)
+collision_mask = 2
 
 [node name="RightLedge" type="RayCast2D" parent="." unique_id=1559500840]
 target_position = Vector2(10, 15)
+collision_mask = 2
 
 [node name="LeftWall" type="RayCast2D" parent="." unique_id=1434060618]
 target_position = Vector2(-15, 0)
+collision_mask = 2
 
 [node name="RightWall" type="RayCast2D" parent="." unique_id=196558550]
 target_position = Vector2(15, 0)
+collision_mask = 2
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1738839158]
 scale = Vector2(2, 2)
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("3_l4oqn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1787133153]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_l4oqn")
 
-[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

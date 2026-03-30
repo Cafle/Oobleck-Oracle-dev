@@ -1,7 +1,10 @@
 class_name Slime
 extends Area2D
 
+enum SlimeType { GENERIC, ICE, LIGHTNING, FIRE }
+@export var slime_type: SlimeType = SlimeType.GENERIC
 @export var speed: float = 80.0
+
 var direction: float = 1.0
 
 @onready var wall_ray_left: RayCast2D = $LeftWall
@@ -27,6 +30,15 @@ func _update_sprite() -> void:
 	animated_sprite.flip_h = direction > 0
 
 func die() -> void:
+	match slime_type:
+		SlimeType.GENERIC:
+			PowerManager.reset_power()
+		SlimeType.FIRE:
+			PowerManager.set_power(PowerManager.Power.FIRE)
+		SlimeType.ICE:
+			PowerManager.set_power(PowerManager.Power.ICE)
+		SlimeType.LIGHTNING:
+			PowerManager.set_power(PowerManager.Power.LIGHTNING)
 	queue_free()
 
 func catch_fire() -> void:
@@ -35,16 +47,16 @@ func catch_fire() -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("fireball"):
 		die()
+			
 
-
-func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+func _on_area_2d_body_entered(body: Node2D) -> void:
 	var PLAYER = get_node("../PLAYER")
+	PLAYER.dead = true
 	PLAYER.velocity = Vector2(0,0)
 	
 	create_tween().tween_property(PLAYER, "modulate", Color.BLACK, 0.4)
 	
 	await get_tree().create_timer(0.4).timeout
 	LevelManager.music_time = get_node("../AudioStreamPlayer").get_playback_position()
-	print(get_node("../AudioStreamPlayer").get_playback_position())
 	get_tree().reload_current_scene()
 	pass # Replace with function body.

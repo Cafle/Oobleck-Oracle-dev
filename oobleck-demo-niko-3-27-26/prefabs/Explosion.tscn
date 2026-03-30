@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dssdseixqb2pw"]
+
+[ext_resource type="Script" uid="uid://dty3tq4n7tbp" path="res://prefabs/explosion.gd" id="2_epeeg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mqod7"]
+radius = 5.0990195
+
+[node name="Explosion" type="Area2D" unique_id=1157763256 groups=["burnable"]]
+light_mask = 2
+visibility_layer = 2
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("2_epeeg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=553758173]
+scale = Vector2(12.613993, 13.147226)
+shape = SubResource("CircleShape2D_mqod7")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=730597309]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
