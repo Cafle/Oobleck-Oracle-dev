@@ -19,14 +19,15 @@ var _frozen := {}
 var _burn_sprites: Dictionary = {}
 
 #FIRE
-
+#METHOD DESCRIPTION: CHECKS IF TILE AND AND SURRONDING TILES ARE PART OF BURNABLE GROUP
+#IF BURNABLE, PROCEEDS TO BURN CLUSTER FUNCTION
 func try_burn_tile(coords: Vector2i) -> void:
 	for offset in [Vector2i(0,0), Vector2i(1,0), Vector2i(-1,0), Vector2i(0,1), Vector2i(0,-1)]:
 		var check: Vector2i = coords + offset
 		if _is_burnable(check):
 			_start_burn_cluster(check)
 			return
-
+#METHOD DESCRIPTION: CREATES A STACK AND VISTED DICT TO TRACK BURNING TILES 
 func _start_burn_cluster(start_coords: Vector2i) -> void:
 	var stack: Array[Vector2i] = [start_coords]
 	var visited := {}
@@ -136,7 +137,8 @@ func _start_freeze(coords: Vector2i) -> void:
 func _freeze_tile(coords: Vector2i) -> void:
 	if _frozen.has(coords):
 		return
-	_frozen[coords] = true
+	# Store original source ID alongside frozen state
+	_frozen[coords] = get_cell_source_id(coords)
 	var current_atlas := get_cell_atlas_coords(coords)
 	var alt_tile := get_cell_alternative_tile(coords)
 	var flip = is_cell_flipped_h(coords)
@@ -145,3 +147,147 @@ func _freeze_tile(coords: Vector2i) -> void:
 			set_cell(coords, frozen_source_id, FREEZE_MAP[current_atlas], alt_tile)
 		else:
 			set_cell(coords, frozen_source_id, FREEZE_MAP[current_atlas])
+
+# REVERSES THE FREEZE_MAP LOOKUP TO FIND THE ORIGINAL ATLAS COORDS
+# RETURNS Vector2i(-1,-1) AS A SENTINEL VALUE IF NO MATCH IS FOUND
+# (SENTINEL USED BECAUSE Vector2i HAS NO NULL STATE)
+func _get_original_atlas(frozen_atlas: Vector2i) -> Vector2i:
+	for original in FREEZE_MAP:
+		if FREEZE_MAP[original] == frozen_atlas:
+			return original
+	return Vector2i(-1, -1)
+
+# CHECKS TILE AND SURROUNDING TILES FOR FROZEN STATE
+# IF FROZEN, PROCEEDS TO MELT THAT TILE
+func try_melt_tile(coords: Vector2i) -> void:
+	print("melt")
+	for offset in [Vector2i(0,0), Vector2i(1,0), Vector2i(-1,0), Vector2i(0,1), Vector2i(0,-1)]:
+		var check: Vector2i = coords + offset
+		if _frozen.has(check):
+			_start_melt_cluster(check)
+			return
+
+# RESTORES A FROZEN TILE TO ITS ORIGINAL ATLAS COORDS AND SOURCE ID
+# ORIGINAL SOURCE ID WAS STORED IN _frozen DICT WHEN TILE WAS FROZEN
+# ERASES TILE FROM _frozen SO IT CAN BE FROZEN AGAIN LATER
+func _melt_tile(coords: Vector2i) -> void:
+	if not _frozen.has(coords):
+		return
+	var current_atlas := get_cell_atlas_coords(coords)
+	var original := _get_original_atlas(current_atlas)
+	var alt_tile := get_cell_alternative_tile(coords)
+	var original_source_id: int = _frozen[coords]
+	if original != Vector2i(-1, -1):
+		set_cell(coords, original_source_id, original, alt_tile)
+	_frozen.erase(coords)
+	
+	
+	
+
+func _start_melt_delayed(coords: Vector2i, delay: float) -> void:
+	await get_tree().create_timer(delay).timeout
+	_melt_tile(coords)
+
+
+func _start_melt_cluster(start_coords: Vector2i) -> void:
+	var stack: Array[Vector2i] = [start_coords]
+	var visited := {}
+	var delay := 0.0
+	while not stack.is_empty():
+		var current: Vector2i = stack.pop_back()
+		if visited.has(current):
+			continue
+		visited[current] = true
+		if not _frozen.has(current):
+			continue
+		_start_melt_delayed(current, delay)
+		delay += 0.1
+		for neighbor in get_surrounding_cells(current):
+			if not visited.has(neighbor):
+				stack.append(neighbor)
+
+
+#LIGHTNING
+# NEED-TO-IMPLEMENT: 
+# DATA LAYERS:
+# conductive (bool) custom data layer for conductive tiles
+# switch (bool) custom data layer for switch tiles
+# door_id (int) 
+# DOOR_MAP
+# provide proper vector pair for switching from closed to open door
+const DOOR_MAP: Dictionary = {
+	Vector2i(2, 0): Vector2i(2, 1),
+}
+
+var _shocked := {}
+
+func try_shock_tile(coords: Vector2i) -> void:
+	for offset in [Vector2i(0,0), Vector2i(1,0), Vector2i(-1,0), Vector2i(0,1), Vector2i(0,-1)]:
+		var check: Vector2i = coords + offset
+		if _is_conductive(check):
+			_start_shock_cluster(check)
+			return
+
+func _start_shock_cluster(start_coords: Vector2i) -> void:
+	var stack: Array[Vector2i] = [start_coords]
+	var visited := {}
+	var delay := 0.0
+	while not stack.is_empty():
+		var current: Vector2i = stack.pop_back()
+		if visited.has(current):
+			continue
+		visited[current] = true
+		if _shocked.has(current):
+			for neighbor in get_surrounding_cells(current):
+				if not visited.has(neighbor):
+					stack.append(neighbor)
+			continue
+		if not _is_conductive(current):
+			continue
+		_start_shock_delayed(current, delay)
+		delay += 0.1
+		for neighbor in get_surrounding_cells(current):
+			if not visited.has(neighbor):
+				stack.append(neighbor)
+
+func _is_conductive(coords: Vector2i) -> bool:
+	if _shocked.has(coords):
+		return false
+	var data := get_cell_tile_data(coords)
+	return data != null and data.get_custom_data("conductive") == true
+
+func _start_shock_delayed(coords: Vector2i, delay: float) -> void:
+	await get_tree().create_timer(delay).timeout
+	_start_shock(coords)
+
+func _start_shock(coords: Vector2i) -> void:
+	if _shocked.has(coords):
+		return
+	_shock_tile(coords)
+
+func _shock_tile(coords: Vector2i) -> void:
+	if _shocked.has(coords):
+		return
+	_shocked[coords] = true
+	var data := get_cell_tile_data(coords)
+	if data != null and data.get_custom_data("switch") == true:
+		_activate_switch(coords)
+# POTENTIAL ISSUE: 
+#CHECKS EVERY NEARBY TILE, speed / lag scales poorly with tile amount
+#POTENTIAL FIX: pre-determine door coords
+func _activate_switch(coords: Vector2i) -> void:
+	# grab the door_id from the switch tile that was shocked
+	var switch_data := get_cell_tile_data(coords)
+	if switch_data == null:
+		return
+	var switch_id = switch_data.get_custom_data("door_id")
+	# scan every tile on the map for a matching door_id
+	var used_cells := get_used_cells()
+	for cell in used_cells:
+		var cell_data := get_cell_tile_data(cell)
+		# skip tiles with no data or a non-matching door_id
+		if cell_data != null and cell_data.get_custom_data("door_id") == switch_id:
+			var cell_atlas := get_cell_atlas_coords(cell)
+			# swap the closed door atlas coords to the open door frame
+			if DOOR_MAP.has(cell_atlas):
+				set_cell(cell, get_cell_source_id(cell), DOOR_MAP[cell_atlas])
