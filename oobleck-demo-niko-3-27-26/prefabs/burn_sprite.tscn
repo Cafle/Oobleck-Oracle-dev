@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://vcvlaq8hqpby"]
+
+[ext_resource type="Texture2D" uid="uid://ck48dgi4hj0xd" path="res://Asset/Tilemap1.png" id="1_byhqk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4onov"]
+atlas = ExtResource("1_byhqk")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4mwh"]
+atlas = ExtResource("1_byhqk")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyldw"]
+atlas = ExtResource("1_byhqk")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bm3si"]
+atlas = ExtResource("1_byhqk")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ucmq8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4onov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4mwh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyldw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bm3si")
+}],
+"loop": true,
+"name": &"burn",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="AnimatedSprite2D" unique_id=130664233]
+sprite_frames = SubResource("SpriteFrames_ucmq8")
+animation = &"burn"
+autoplay = "burn"
+frame_progress = 0.5286161

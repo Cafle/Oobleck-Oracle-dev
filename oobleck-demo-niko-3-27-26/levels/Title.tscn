@@ -192,11 +192,11 @@ ticks_position = 1
 
 [node name="TITLE" type="VBoxContainer" parent="." unique_id=14175978]
 layout_mode = 0
-offset_left = 485.0
-offset_top = 312.0
-offset_right = 555.0
-offset_bottom = 413.0
-scale = Vector2(2.716113, 2.6567338)
+offset_left = 465.0
+offset_top = 306.0
+offset_right = 567.0
+offset_bottom = 452.0
+scale = Vector2(2.0379472, 2.0388608)
 
 [node name="start" type="Button" parent="TITLE" unique_id=1320759324]
 layout_mode = 2

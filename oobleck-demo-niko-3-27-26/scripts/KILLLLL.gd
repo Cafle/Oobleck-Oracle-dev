@@ -11,17 +11,14 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_body_entered(body: Node2D) -> void:	
+func _on_body_entered(body: Node2D) -> void:
+	print("illimng")	
 	var PLAYER = get_node("../PLAYER")
-	PLAYER.dead = true
 	PLAYER.velocity = Vector2(0,0)
 	
-	create_tween().tween_property(PLAYER, "modulate", Color.BLACK, 0.7)
+	create_tween().tween_property(PLAYER, "modulate", Color.BLACK, 0.4)
 	
-	await get_tree().create_timer(1).timeout
-	
-	PLAYER.position = get_node("../SPAWN").position
-	create_tween().tween_property(PLAYER, "modulate", Color.WHITE , 0)
-	await get_tree().create_timer(0.7).timeout
-	PLAYER.dead = false
+	await get_tree().create_timer(0.4).timeout
+	LevelManager.music_time = get_node("../AudioStreamPlayer").get_playback_position()
+	LevelManager._load_level(int(get_tree().current_scene.name))
 	pass # Replace with function body.

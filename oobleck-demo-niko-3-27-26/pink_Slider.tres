@@ -1,5 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://bpn64vvfosajt"]
 
+[ext_resource type="FontFile" uid="uid://bdgx4qekjk6k7" path="res://Asset/Pixeled.ttf" id="1_1rpth"]
 [ext_resource type="Texture2D" uid="uid://gu03l0dm3fcy" path="res://Asset/button-Sheet.png" id="1_tur32"]
 [ext_resource type="Texture2D" uid="uid://dmn7mqg05rwvq" path="res://Asset/ui-export.png" id="1_ugsjw"]
 
@@ -41,6 +42,7 @@ axis_stretch_vertical = 1
 region_rect = Rect2(2, 0, 1, 3)
 
 [resource]
+Button/fonts/font = ExtResource("1_1rpth")
 Button/styles/hover = SubResource("StyleBoxTexture_rwwyh")
 Button/styles/normal = SubResource("StyleBoxTexture_tur32")
 Button/styles/pressed = SubResource("StyleBoxTexture_38aho")
@@ -54,3 +56,4 @@ HSlider/icons/tick = SubResource("DPITexture_ukfm7")
 HSlider/styles/grabber_area = SubResource("StyleBoxTexture_lv56i")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_lv56i")
 HSlider/styles/slider = SubResource("StyleBoxTexture_lv56i")
+RichTextLabel/fonts/normal_font = ExtResource("1_1rpth")

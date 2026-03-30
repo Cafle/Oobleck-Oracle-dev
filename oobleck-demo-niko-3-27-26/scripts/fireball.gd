@@ -1,5 +1,4 @@
 extends Area2D
-
 @export var speed: int = 500
 var direction: Vector2
 
@@ -23,13 +22,18 @@ func burn(target: Node) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	print("AREA HIT: ", area)
-	if area.is_in_group("burnable"):
+	if area is Slime:
+		area.die()
+	elif area.is_in_group("burnable"):
 		burn(area)
 	destroy()
 
 func _on_body_entered(body: Node2D) -> void:
 	print("BODY HIT: ", body)
-	if body.is_in_group("burnable"):
+	if body is BurnableMap:
+		var tile_coords: Vector2i = body.local_to_map(body.to_local(global_position))
+		body.try_burn_tile(tile_coords)
+	elif body.is_in_group("burnable"):
 		burn(body)
 	destroy()
 

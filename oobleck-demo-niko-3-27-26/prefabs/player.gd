@@ -20,6 +20,11 @@ var is_attacking: bool = false
 @onready var animated_sprite = $Sprite2D
 
 
+func _ready() -> void:
+	get_node("../AudioStreamPlayer").play(LevelManager.music_time+0.01) 
+	pass # Replace with function body.
+
+
 func shoot_fireball():
 	var direction = 0
 	if REF_FIREBALL:

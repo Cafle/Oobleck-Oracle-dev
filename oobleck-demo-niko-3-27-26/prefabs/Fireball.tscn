@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bn3omt7rkogrr"]
 
-[ext_resource type="Script" uid="uid://dwlbk0x3bsx4j" path="res://scripts/fireball_demo.gd" id="1_51xsj"]
+[ext_resource type="Script" uid="uid://dwlbk0x3bsx4j" path="res://scripts/fireball.gd" id="1_51xsj"]
 [ext_resource type="Texture2D" uid="uid://cbwxuk1wi7n5u" path="res://Asset/Projectiles-Sheet.png" id="2_t62ju"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t6rgl"]
