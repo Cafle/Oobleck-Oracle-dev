@@ -21,6 +21,7 @@ var is_attacking: bool = false
 @onready var animated_sprite = $Sprite2D
 
 func _ready() -> void:
+	PowerManager.set_power(PowerManager.Power.NONE)
 	get_node("../AudioStreamPlayer").play(LevelManager.music_time+0.01)
 
 func shoot_projectile() -> void:

@@ -1,41 +1,111 @@
 [gd_scene format=3 uid="uid://ddbqch22cr1ta"]
 
 [ext_resource type="PackedScene" uid="uid://djiourbpg3maw" path="res://prefabs/LevelButton.tscn" id="1_5rv0k"]
+[ext_resource type="Theme" uid="uid://bpn64vvfosajt" path="res://pink_Slider.tres" id="1_py71h"]
 [ext_resource type="AudioStream" uid="uid://d2uomjfnptdbi" path="res://audio/Grilbo Gralbo.mp3" id="2_27vy5"]
+[ext_resource type="Texture2D" uid="uid://csytgk8biagso" path="res://Asset/sky-Sheet.png" id="4_4gkck"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wm4i"]
+atlas = ExtResource("4_4gkck")
+region = Rect2(0, 162, 288, 162)
 
 [node name="LevelSelect" type="Node2D" unique_id=1972753908]
 
-[node name="Label" type="Label" parent="." unique_id=1944110784]
-offset_left = 242.0
-offset_top = 14.0
-offset_right = 285.0
-offset_bottom = 37.0
-scale = Vector2(15.270351, 7.9785056)
-text = "bruh"
+[node name="Label2" type="RichTextLabel" parent="." unique_id=1701933145]
+offset_left = 227.0
+offset_top = 457.0
+offset_right = 892.0
+offset_bottom = 637.0
+theme = ExtResource("1_py71h")
+theme_override_font_sizes/normal_font_size = 64
+text = "Level Select"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1960990054]
-offset_left = 207.0
-offset_top = 182.0
-offset_right = 249.0
-offset_bottom = 222.0
-scale = Vector2(16.51434, 10.5993805)
+layout_direction = 2
+offset_left = 39.0
+offset_top = 40.0
+offset_right = 171.5
+offset_bottom = 152.5
+scale = Vector2(8, 4)
 
 [node name="GridContainer" type="GridContainer" parent="CenterContainer" unique_id=843145036]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
-columns = 3
+columns = 5
 
 [node name="1" parent="CenterContainer/GridContainer" unique_id=957559581 instance=ExtResource("1_5rv0k")]
 layout_mode = 2
+theme = ExtResource("1_py71h")
+theme_override_font_sizes/font_size = 10
 text = ""
 
-[node name="2" parent="CenterContainer/GridContainer" unique_id=695492924 instance=ExtResource("1_5rv0k")]
+[node name="2" parent="CenterContainer/GridContainer" unique_id=1941543438 instance=ExtResource("1_5rv0k")]
 layout_mode = 2
+theme = ExtResource("1_py71h")
+theme_override_font_sizes/font_size = 10
 text = ""
+
+[node name="3" parent="CenterContainer/GridContainer" unique_id=579992490 instance=ExtResource("1_5rv0k")]
+layout_mode = 2
+theme = ExtResource("1_py71h")
+theme_override_font_sizes/font_size = 10
+text = ""
+
+[node name="4" parent="CenterContainer/GridContainer" unique_id=1896335751 instance=ExtResource("1_5rv0k")]
+layout_mode = 2
+theme = ExtResource("1_py71h")
+theme_override_font_sizes/font_size = 10
+text = ""
+
+[node name="5" parent="CenterContainer/GridContainer" unique_id=218750508 instance=ExtResource("1_5rv0k")]
+layout_mode = 2
+theme = ExtResource("1_py71h")
+theme_override_font_sizes/font_size = 10
+text = ""
+
+[node name="6" parent="CenterContainer/GridContainer" unique_id=563669351 instance=ExtResource("1_5rv0k")]
+layout_mode = 2
+theme = ExtResource("1_py71h")
+theme_override_font_sizes/font_size = 10
+text = ""
+
+[node name="7" parent="CenterContainer/GridContainer" unique_id=334364801 instance=ExtResource("1_5rv0k")]
+layout_mode = 2
+theme = ExtResource("1_py71h")
+theme_override_font_sizes/font_size = 10
+text = ""
+
+[node name="8" parent="CenterContainer/GridContainer" unique_id=65599879 instance=ExtResource("1_5rv0k")]
+layout_mode = 2
+theme = ExtResource("1_py71h")
+theme_override_font_sizes/font_size = 10
+text = ""
+
+[node name="9" parent="CenterContainer/GridContainer" unique_id=1869116415 instance=ExtResource("1_5rv0k")]
+layout_mode = 2
+theme = ExtResource("1_py71h")
+theme_override_font_sizes/font_size = 10
+text = ""
+
+[node name="10" parent="CenterContainer/GridContainer" unique_id=219040951 instance=ExtResource("1_5rv0k")]
+layout_mode = 2
+theme = ExtResource("1_py71h")
+theme_override_font_sizes/font_size = 10
+text = ""
+icon_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1822087513]
 stream = ExtResource("2_27vy5")
 autoplay = true
 bus = &"Music"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=605035599]
+z_index = -5
+position = Vector2(576, 324)
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_1wm4i")

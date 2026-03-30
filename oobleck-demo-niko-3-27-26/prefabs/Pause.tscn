@@ -24,6 +24,7 @@ region = Rect2(30, 1, 10, 12)
 
 [node name="PAUSE" type="Sprite2D" unique_id=159365416]
 process_mode = 3
+z_index = 10
 position = Vector2(184, 190)
 scale = Vector2(3.346666, 3.5048156)
 texture = ExtResource("1_upyyo")

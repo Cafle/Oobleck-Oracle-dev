@@ -3,18 +3,9 @@
 [ext_resource type="Script" uid="uid://bcm53h8gkolif" path="res://scripts/title.gd" id="1_3g2l2"]
 [ext_resource type="AudioStream" uid="uid://bsego85hxu316" path="res://audio/Title screen.mp3" id="3_ukfm7"]
 [ext_resource type="Texture2D" uid="uid://dmn7mqg05rwvq" path="res://Asset/ui-export.png" id="4_ffl23"]
-[ext_resource type="Texture2D" uid="uid://gu03l0dm3fcy" path="res://Asset/button-Sheet.png" id="4_qxgl8"]
 [ext_resource type="Theme" uid="uid://bpn64vvfosajt" path="res://pink_Slider.tres" id="4_ukfm7"]
 [ext_resource type="Texture2D" uid="uid://bnwxhmnsiae6o" path="res://Asset/title screen-Sheet.png" id="5_ukfm7"]
 [ext_resource type="Texture2D" uid="uid://csytgk8biagso" path="res://Asset/sky-Sheet.png" id="6_ykyu8"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sgluf"]
-atlas = ExtResource("4_qxgl8")
-region = Rect2(18.032713, 36.014137, 58.97953, 23.967361)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nomfv"]
-atlas = ExtResource("4_qxgl8")
-region = Rect2(117.97817, 37.010387, 58.05111, 23.005188)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nw7sj"]
 atlas = ExtResource("4_ffl23")
@@ -136,24 +127,6 @@ offset_right = 458.0
 offset_bottom = 296.0
 scale = Vector2(8, 8)
 
-[node name="Back" type="TextureButton" parent="OPTIONS" unique_id=671452840]
-layout_mode = 0
-offset_left = 3.807601
-offset_top = 27.207115
-offset_right = 61.807602
-offset_bottom = 58.207115
-scale = Vector2(0.47768962, 0.28644875)
-texture_normal = SubResource("AtlasTexture_sgluf")
-texture_pressed = SubResource("AtlasTexture_nomfv")
-
-[node name="Label" type="Label" parent="OPTIONS/Back" unique_id=1022606152]
-layout_mode = 0
-offset_left = 9.782089
-offset_top = -0.42784122
-offset_right = 49.78209
-offset_bottom = 22.572159
-text = "Back"
-
 [node name="FX" type="Sprite2D" parent="OPTIONS" unique_id=1977318812]
 position = Vector2(7.624998, 21.625)
 scale = Vector2(0.5071676, 0.50697327)
@@ -190,12 +163,22 @@ step = 0.001
 value = 0.75
 ticks_position = 1
 
+[node name="Back" type="Button" parent="OPTIONS" unique_id=2009335450]
+layout_mode = 0
+offset_left = 7.5
+offset_top = 28.75
+offset_right = 89.5
+offset_bottom = 74.75
+scale = Vector2(0.25, 0.2)
+theme = ExtResource("4_ukfm7")
+text = "  Back "
+
 [node name="TITLE" type="VBoxContainer" parent="." unique_id=14175978]
 layout_mode = 0
-offset_left = 465.0
-offset_top = 306.0
-offset_right = 567.0
-offset_bottom = 452.0
+offset_left = 449.0
+offset_top = 300.0
+offset_right = 570.0
+offset_bottom = 446.0
 scale = Vector2(2.0379472, 2.0388608)
 
 [node name="start" type="Button" parent="TITLE" unique_id=1320759324]
@@ -207,7 +190,7 @@ text = "start"
 layout_mode = 2
 theme = ExtResource("4_ukfm7")
 button_mask = 3
-text = "options"
+text = "  options "
 
 [node name="quit" type="Button" parent="TITLE" unique_id=2042784902]
 layout_mode = 2
@@ -230,9 +213,9 @@ position = Vector2(576, 324)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_lmw6r")
 
-[connection signal="button_up" from="OPTIONS/Back" to="." method="_on_back_button_up"]
 [connection signal="value_changed" from="OPTIONS/FX_SLIDER" to="." method="_on_fx_slider_value_changed"]
 [connection signal="value_changed" from="OPTIONS/M_SLIDER" to="." method="_on_m_slider_value_changed"]
+[connection signal="button_up" from="OPTIONS/Back" to="." method="_on_back_button_up"]
 [connection signal="button_up" from="TITLE/start" to="." method="_on_start_button_up"]
 [connection signal="button_up" from="TITLE/eopitois" to="." method="_on_eopitois_button_up"]
 [connection signal="button_up" from="TITLE/quit" to="." method="_on_quit_button_up"]
