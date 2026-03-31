@@ -2,11 +2,6 @@ extends Area2D
 @export var speed: int = 500
 var direction: Vector2
 
-func _ready() -> void:
-	print("Fireball ready, monitoring: ", monitoring)
-	print("Fireball collision layer: ", collision_layer)
-	print("Fireball collision mask: ", collision_mask)
-
 func _physics_process(delta: float) -> void:
 	direction = Vector2.RIGHT.rotated(rotation)
 	global_position += direction * speed * delta
@@ -36,7 +31,7 @@ func _on_body_entered(body: Node2D) -> void:
 		
 	elif body.is_in_group("burnable"):
 		burn(body)
-		
+	
 	if body is Slime:
 		body.die()
 	elif body.is_in_group("burnable"):
@@ -44,5 +39,4 @@ func _on_body_entered(body: Node2D) -> void:
 	destroy()
 	
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	print("Left screen")
 	destroy()

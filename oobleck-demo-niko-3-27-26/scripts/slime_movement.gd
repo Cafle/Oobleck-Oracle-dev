@@ -67,6 +67,7 @@ func _update_sprite() -> void:
 	animated_sprite.flip_h = direction > 0
 
 func die() -> void:
+	get_node("../PLAYER").play_sound("res://audio/Slime_deathmp3.mp3")
 	match slime_type:
 		SlimeType.GENERIC:
 			PowerManager.reset_power()
@@ -89,10 +90,10 @@ func _on_area_entered(area: Area2D) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	print(body.name)
 	if body.name == "PLAYER":
-		print("gurt")
 		var PLAYER = get_node("../PLAYER")
 		PLAYER.dead = true
 		PLAYER.velocity = Vector2(0,0)
+		get_node("../PLAYER").play_sound("res://audio/die.mp3")
 		
 		create_tween().tween_property(PLAYER, "modulate", Color.BLACK, 0.4)
 		

@@ -64,8 +64,6 @@ script = ExtResource("1_cvwyk")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=663713615]
 sprite_frames = SubResource("SpriteFrames_x0m6o")
 autoplay = "default"
-frame = 1
-frame_progress = 0.10533504
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1122458827]
 

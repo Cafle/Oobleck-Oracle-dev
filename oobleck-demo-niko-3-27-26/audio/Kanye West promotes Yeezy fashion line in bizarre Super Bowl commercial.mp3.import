@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dgpdm8rrynapr"
+path="res://.godot/imported/Kanye West promotes Yeezy fashion line in bizarre Super Bowl commercial.mp3-c263e24ee32940dfa7099d49fb194b7a.mp3str"
+
+[deps]
+
+source_file="res://audio/Kanye West promotes Yeezy fashion line in bizarre Super Bowl commercial.mp3"
+dest_files=["res://.godot/imported/Kanye West promotes Yeezy fashion line in bizarre Super Bowl commercial.mp3-c263e24ee32940dfa7099d49fb194b7a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

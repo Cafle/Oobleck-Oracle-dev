@@ -10,10 +10,21 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func play_sound(path):
+	var player = AudioStreamPlayer.new()
+	add_child(player)
+	player.set_bus("FX")
+	player.stream = load(path)
+	player.play()
+	
+	player.finished.connect(func():
+		player.queue_free()
+	)
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "PLAYER":
 		var PLAYER = get_node("../PLAYER")
+		PLAYER.play_sound("res://audio/die.mp3")
 		PLAYER.velocity = Vector2(0,0)
 		create_tween().tween_property(PLAYER, "modulate", Color.BLACK, 0.4)
 		

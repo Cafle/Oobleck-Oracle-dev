@@ -5,10 +5,22 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 
+func _ready() -> void:
+	play_sound("res://audio/Kanye West promotes Yeezy fashion line in bizarre Super Bowl commercial.mp3")
+	
+func play_sound(path):
+	var player = AudioStreamPlayer.new()
+	add_child(player)
+	player.stream = load(path)
+	player.play()
+	
+	player.finished.connect(func():
+		player.queue_free()
+	)
+	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
-		print("AHHH")
 		velocity += get_gravity() * delta
 
 	# Handle jump.

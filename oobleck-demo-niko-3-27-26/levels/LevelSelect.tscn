@@ -123,3 +123,15 @@ z_index = -5
 position = Vector2(576, 324)
 scale = Vector2(4, 4)
 texture = SubResource("AtlasTexture_1wm4i")
+
+[node name="Back" type="Button" parent="." unique_id=1369091767]
+offset_left = 961.0
+offset_top = 551.0
+offset_right = 1561.0
+offset_bottom = 850.0
+scale = Vector2(0.25, 0.2)
+theme = ExtResource("1_py71h")
+theme_override_font_sizes/font_size = 103
+text = "  Back "
+
+[connection signal="button_up" from="Back" to="CenterContainer/GridContainer/1" method="_on_back_button_up"]

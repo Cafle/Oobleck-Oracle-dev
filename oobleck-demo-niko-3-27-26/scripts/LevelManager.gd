@@ -1,7 +1,7 @@
 extends Node
 
 var current_level: int = 1
-var level_unlocked: int = 13
+var level_unlocked: int = 1
 var max_level: int = 13
 
 var music_time = 0

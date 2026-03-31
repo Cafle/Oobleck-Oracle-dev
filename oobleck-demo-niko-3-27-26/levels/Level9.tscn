@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cilgmjtsolrfo" path="res://prefabs/Player.tscn" id="5_3x5tl"]
 [ext_resource type="PackedScene" uid="uid://bnh72wxuvmpif" path="res://prefabs/WIN.tscn" id="6_hjr80"]
 [ext_resource type="Script" uid="uid://nfur6pee4mfh" path="res://scripts/KILLLLL.gd" id="7_42fxp"]
-[ext_resource type="Theme" uid="uid://bpn64vvfosajt" path="res://pink_Slider.tres" id="8_otugy"]
 [ext_resource type="PackedScene" uid="uid://dupp1vlqtk77g" path="res://prefabs/default_slime.tscn" id="9_yuagn"]
 
 [sub_resource type="AudioStreamMP3" id="AudioStreamMP3_gljt1"]
@@ -437,6 +436,7 @@ process_mode = 3
 stream = SubResource("AudioStreamMP3_gljt1")
 autoplay = true
 bus = &"Music"
+parameters/looping = true
 
 [node name="PAUSE" parent="." unique_id=2088614349 instance=ExtResource("1_vc40j")]
 visible = false
@@ -446,7 +446,7 @@ position = Vector2(0, 0)
 z_index = 1
 position = Vector2(0, 4)
 scale = Vector2(2, 2)
-tile_map_data = PackedByteArray("AADl/w0AAAAAAAAAAAD5//3/AAAFAAAAAAD6//3/AAAFAAAAAAD7//3/AAAFAAAAAAD+/wEAAAAFAAAAAAD+/wIAAAAFAAAAAAD///3/AAAFAAAAAAAAAP3/AAAFAAAAAAABAP3/AAAFAAAAAAAEAAEAAAAGAAcAAAAEAAIAAAAFAAAAAAAGAAEAAAAGAAcAADAGAAIAAAAFAAAAAAD5//z/AAAFAAAAAAD5/wAAAAAFAAAAAAD6//z/AAAFAAAAAAD7//z/AAAFAAAAAAD8//z/AAAAABoAAGD8/wAAAAAFAAAAAAD8/wIAAAAFAAAAAAD9//z/AAAAABsAAGD9/wAAAAAFAAAAAAD9/wIAAAAFAAAAAAD+//z/AAAAABsAAGD+/wAAAAAFAAAAAAD///z/AAAFAAAAAAAAAPz/AAAFAAAAAAABAPz/AAAFAAAAAAAEAAAAAAAIAAgAAAAFAAAAAAAGAAcAAGAFAAIAAAAFAAAAAAAGAAAAAAAHAAgAAAD8////AAAAABMAAAD+////AAAAABMAABD8//7/AAAAABMAAAD+//7/AAAAABMAABD8//3/AAAAABEAAAD+//3/AAAAABEAABD3/wQAAAAAAA4AAAD4/wQAAAAAAAwAAAD5/wQAAAAAAAwAAAD6/wQAAAAAAAwAAAD7/wQAAAAAAAwAAAD8/wQAAAAAAAwAAAD9/wQAAAAAAAwAAAD+/wQAAAAAAAwAAAD//wQAAAAAAAwAAAAAAAQAAAAAAAwAAAABAAQAAAAAAAwAAAACAAQAAAAAAAwAAAADAAQAAAAAAAwAAAAEAAQAAAAAAAwAAAAFAAQAAAAAAAwAAAAGAAQAAAAAAAwAAAAHAAQAAAAAAAwAAAAIAAQAAAAAAAwAAAD3/wMAAAAAAA8AAAD9/wEAAAAEAAUAAAD3/wIAAAAAAA8AAAD3/wEAAAAAAA8AAAD3/wAAAAAAAA8AAAD3////AAAAAA8AAAD3//7/AAAAAA8AAAD3//3/AAAAAA8AAAD3//z/AAAAAA8AAAD3//v/AAAAAA0AAAD5/wIAAAAEAAAAAAA=")
+tile_map_data = PackedByteArray("AADl/w0AAAAAAAAAAAD5//3/AAAFAAAAAAD6//3/AAAFAAAAAAD7//3/AAAFAAAAAAD+/wEAAAAFAAAAAAD+/wIAAAAFAAAAAAD///3/AAAFAAAAAAAAAP3/AAAFAAAAAAABAP3/AAAFAAAAAAAEAAEAAAAGAAcAAAAEAAIAAAAFAAAAAAAGAAEAAAAGAAcAADAGAAIAAAAFAAAAAAD5//z/AAAFAAAAAAD5/wAAAAAFAAAAAAD6//z/AAAFAAAAAAD7//z/AAAFAAAAAAD8//z/AAAAABoAAGD8/wAAAAAFAAAAAAD8/wIAAAAFAAAAAAD9//z/AAAAABsAAGD9/wAAAAAFAAAAAAD9/wIAAAAFAAAAAAD+//z/AAAAABsAAGD+/wAAAAAFAAAAAAD///z/AAAFAAAAAAAAAPz/AAAFAAAAAAABAPz/AAAFAAAAAAAEAAAAAAAIAAgAAAAFAAAAAAAGAAcAAGAFAAIAAAAFAAAAAAAGAAAAAAAHAAgAAAD8////AAAAABMAAAD+////AAAAABMAABD8//7/AAAAABMAAAD+//7/AAAAABMAABD8//3/AAAAABEAAAD+//3/AAAAABEAABD3/wQAAAAAAA4AAAD4/wQAAAAAAAwAAAD5/wQAAAAAAAwAAAD6/wQAAAAAAAwAAAD7/wQAAAAAAAwAAAD8/wQAAAAAAAwAAAD9/wQAAAAAAAwAAAD+/wQAAAAAAAwAAAD//wQAAAAAAAwAAAAAAAQAAAAAAAwAAAABAAQAAAAAAAwAAAACAAQAAAAAAAwAAAADAAQAAAAAAAwAAAAEAAQAAAAAAAwAAAAFAAQAAAAAAAwAAAAGAAQAAAAAAAwAAAAHAAQAAAAAAAwAAAAIAAQAAAAAAAwAAAD3/wMAAAAAAA8AAAD9/wEAAAAEAAUAAAD3/wIAAAAAAA8AAAD3/wEAAAAAAA8AAAD3/wAAAAAAAA8AAAD3////AAAAAA8AAAD3//7/AAAAAA8AAAD3//3/AAAAAA8AAAD3//z/AAAAAA8AAAD3//v/AAAAAA0AAAD5/wIAAAAFAAAAAAA=")
 tile_set = SubResource("TileSet_qcwkq")
 script = ExtResource("3_c4436")
 burn_scene = ExtResource("4_jhadt")
@@ -482,21 +482,6 @@ z_index = -5
 scale = Vector2(4, 4)
 texture = SubResource("AtlasTexture_5pn2a")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1884878637]
-z_index = -3
-offset_left = 890.0
-offset_top = -14.0
-offset_right = 1288.0
-offset_bottom = 106.0
-theme = ExtResource("8_otugy")
-theme_override_font_sizes/normal_font_size = 21
-text = "The orbs won't ponder
-           themselves"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-autowrap_trim_flags = 0
-
 [node name="Default_Slime" parent="." unique_id=294541890 instance=ExtResource("9_yuagn")]
 position = Vector2(-418, -29)
 slime_type = 1
@@ -511,6 +496,7 @@ position = Vector2(34, -286)
 slime_type = 3
 
 [node name="Default_Slime4" parent="." unique_id=524349923 instance=ExtResource("9_yuagn")]
+z_index = 2
 position = Vector2(-218, 99)
 slime_type = 2
 

@@ -171,7 +171,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cqse3")
 }, {
-"duration": 1.0,
+"duration": 100.0,
 "texture": SubResource("AtlasTexture_1smtb")
 }],
 "loop": false,
@@ -369,7 +369,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lfnx4")
 }, {
-"duration": 1.0,
+"duration": 100.0,
 "texture": SubResource("AtlasTexture_n30mv")
 }],
 "loop": false,
@@ -567,7 +567,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pie47")
 }, {
-"duration": 1.0,
+"duration": 100.0,
 "texture": SubResource("AtlasTexture_t7uhg")
 }],
 "loop": false,
@@ -814,22 +814,22 @@ shape = SubResource("RectangleShape2D_glu7e")
 [node name="none" type="AnimatedSprite2D" parent="." unique_id=1939885554]
 scale = Vector2(0.6817798, 0.9606122)
 sprite_frames = SubResource("SpriteFrames_64pgi")
-animation = &"attack"
+animation = &"jump"
 
 [node name="fire" type="AnimatedSprite2D" parent="." unique_id=886220662]
 scale = Vector2(0.6817798, 0.9606122)
 sprite_frames = SubResource("SpriteFrames_1nynx")
-animation = &"attack"
+animation = &"jump"
 
 [node name="ice" type="AnimatedSprite2D" parent="." unique_id=142270105]
 scale = Vector2(0.6817798, 0.9606122)
 sprite_frames = SubResource("SpriteFrames_0ep8a")
-animation = &"attack"
+animation = &"jump"
 
 [node name="lightning" type="AnimatedSprite2D" parent="." unique_id=579014486]
 scale = Vector2(0.6817798, 0.9606122)
 sprite_frames = SubResource("SpriteFrames_634ti")
-animation = &"attack"
+animation = &"jump"
 
 [connection signal="animation_finished" from="none" to="." method="_on_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="fire" to="." method="_on_sprite_2d_animation_finished"]

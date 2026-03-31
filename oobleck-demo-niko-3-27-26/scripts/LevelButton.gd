@@ -13,7 +13,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _pressed() -> void:
-	print(is_unlocked)
 	if is_unlocked:
 		LevelManager.current_level = level
 		get_tree().call_deferred("change_scene_to_file", LevelManager._load_level(level))
+
+
+func _on_back_button_up() -> void:
+	get_tree().change_scene_to_file("res://levels/Title.tscn");

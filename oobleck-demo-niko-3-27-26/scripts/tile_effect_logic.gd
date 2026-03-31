@@ -77,12 +77,10 @@ func _spawn_burn_sprite(coords: Vector2i) -> void:
 	_burn_sprites[coords] = sprite
 
 func _burn_tile_async(coords: Vector2i) -> void:
-	print(str(coords) + " is burning!")
 	await get_tree().create_timer(burn_time).timeout
 	var data := get_cell_tile_data(coords)
 	if data != null and data.get_custom_data("burnable") == true:
 		erase_cell(coords)
-		print(str(coords) + " burned down!")
 	if _burn_sprites.has(coords):
 		_burn_sprites[coords].queue_free()
 		_burn_sprites.erase(coords)
@@ -160,7 +158,6 @@ func _get_original_atlas(frozen_atlas: Vector2i) -> Vector2i:
 # CHECKS TILE AND SURROUNDING TILES FOR FROZEN STATE
 # IF FROZEN, PROCEEDS TO MELT THAT TILE
 func try_melt_tile(coords: Vector2i) -> void:
-	print("melt")
 	for offset in [Vector2i(0,0), Vector2i(1,0), Vector2i(-1,0), Vector2i(0,1), Vector2i(0,-1)]:
 		var check: Vector2i = coords + offset
 		if _frozen.has(check):
@@ -236,7 +233,6 @@ func try_shock_tile(coords: Vector2i) -> void:
 			return
 
 func _start_shock_cluster(start_coords: Vector2i) -> void:
-	print("fdsfds")
 	var stack: Array[Vector2i] = [start_coords]
 	var visited := {}
 	var delay := 0.0

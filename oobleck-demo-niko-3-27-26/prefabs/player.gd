@@ -39,6 +39,17 @@ func _set_active_sprite(new_sprite: AnimatedSprite2D) -> void:
 	new_sprite.visible = true
 	animated_sprite = new_sprite
 
+func play_sound(path):
+	var player = AudioStreamPlayer.new()
+	add_child(player)
+	player.set_bus("FX")
+	player.stream = load(path)
+	player.play()
+	
+	player.finished.connect(func():
+		player.queue_free()
+	)
+
 func _on_power_changed(power: PowerManager.Power) -> void:
 	match power:
 		PowerManager.Power.NONE:
@@ -53,12 +64,16 @@ func _on_power_changed(power: PowerManager.Power) -> void:
 func shoot_projectile() -> void:
 	match PowerManager.current_power:
 		PowerManager.Power.NONE:
+			play_sound("res://audio/explosionmp3.mp3")
 			_spawn_explosion()
 		PowerManager.Power.FIRE:
+			play_sound("res://audio/fireballmp3.mp3")
 			_spawn_projectile(REF_FIREBALL)
 		PowerManager.Power.ICE:
+			play_sound("res://audio/icemp3.mp3")
 			_spawn_projectile(REF_ICEBALL)
 		PowerManager.Power.LIGHTNING:
+			play_sound("res://audio/zapmp3.mp3")
 			_spawn_projectile(REF_LIGHTNING)
 
 func _spawn_projectile(scene: PackedScene) -> void:

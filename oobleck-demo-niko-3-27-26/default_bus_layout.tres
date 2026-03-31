@@ -1,6 +1,7 @@
 [gd_resource type="AudioBusLayout" format=3 uid="uid://cck87578ug73j"]
 
 [resource]
+bus/0/send = &"2"
 bus/1/name = &"FX"
 bus/1/solo = false
 bus/1/mute = false
