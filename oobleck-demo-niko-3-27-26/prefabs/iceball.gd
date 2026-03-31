@@ -1,5 +1,5 @@
 extends Area2D
-@export var speed: int = 500
+@export var speed: int = 300
 var direction: Vector2
 
 func _physics_process(delta: float) -> void:

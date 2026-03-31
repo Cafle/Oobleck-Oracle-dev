@@ -217,7 +217,13 @@ func _start_melt_cluster(start_coords: Vector2i) -> void:
 # provide proper vector pair for switching from closed to open door
 const DOOR_MAP: Dictionary = {
 	Vector2i(0, 27): Vector2i(1, 27),
-	Vector2i(0, 26): Vector2i(1, 26)
+	Vector2i(0, 26): Vector2i(1, 26),
+	Vector2i(0, 5): Vector2i(1, 27),
+	Vector2i(1, 5): Vector2i(1, 27),
+	Vector2i(2, 5): Vector2i(1, 27),
+	Vector2i(0, 6): Vector2i(1, 27),
+	Vector2i(1, 6): Vector2i(1, 27),
+	Vector2i(2, 6): Vector2i(1, 27)
 }
 
 var _shocked := {}

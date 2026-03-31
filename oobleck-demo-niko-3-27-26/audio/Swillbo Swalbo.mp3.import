@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b0rstdw7bnfbu"
+path="res://.godot/imported/Swillbo Swalbo.mp3-446dee676c50f6bf5e7267c6a56148e2.mp3str"
+
+[deps]
+
+source_file="res://audio/Swillbo Swalbo.mp3"
+dest_files=["res://.godot/imported/Swillbo Swalbo.mp3-446dee676c50f6bf5e7267c6a56148e2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

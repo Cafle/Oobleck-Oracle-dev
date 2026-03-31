@@ -320,11 +320,11 @@ target_position = Vector2(7, 12)
 collision_mask = 2
 
 [node name="LeftWall" type="RayCast2D" parent="." unique_id=1434060618]
-target_position = Vector2(-15, 0)
+target_position = Vector2(-13, 0)
 collision_mask = 2
 
 [node name="RightWall" type="RayCast2D" parent="." unique_id=196558550]
-target_position = Vector2(15, 0)
+target_position = Vector2(13, -0.33333334)
 collision_mask = 2
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1738839158]
