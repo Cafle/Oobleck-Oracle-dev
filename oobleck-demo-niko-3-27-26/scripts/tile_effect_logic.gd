@@ -216,7 +216,8 @@ func _start_melt_cluster(start_coords: Vector2i) -> void:
 # DOOR_MAP
 # provide proper vector pair for switching from closed to open door
 const DOOR_MAP: Dictionary = {
-	Vector2i(2, 0): Vector2i(2, 1),
+	Vector2i(0, 27): Vector2i(1, 27),
+	Vector2i(0, 26): Vector2i(1, 26)
 }
 
 var _shocked := {}
@@ -229,6 +230,7 @@ func try_shock_tile(coords: Vector2i) -> void:
 			return
 
 func _start_shock_cluster(start_coords: Vector2i) -> void:
+	print("fdsfds")
 	var stack: Array[Vector2i] = [start_coords]
 	var visited := {}
 	var delay := 0.0

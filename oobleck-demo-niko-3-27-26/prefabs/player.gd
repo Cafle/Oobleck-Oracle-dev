@@ -18,11 +18,37 @@ var is_attacking: bool = false
 @export var REF_LIGHTNING: PackedScene
 @export var REF_EXPLOSION: PackedScene
 
-@onready var animated_sprite = $Sprite2D
+@onready var animated_sprite = $none
+@onready var sprite_none: AnimatedSprite2D = $none
+@onready var sprite_fire: AnimatedSprite2D = $fire
+@onready var sprite_ice: AnimatedSprite2D = $ice
+@onready var sprite_lightning: AnimatedSprite2D = $lightning
 
 func _ready() -> void:
-	#PowerManager.set_power(PowerManager.Power.NONE)
+	
+	PowerManager.set_power(PowerManager.Power.NONE)
 	get_node("../AudioStreamPlayer").play(LevelManager.music_time+0.01)
+	PowerManager.power_changed.connect(_on_power_changed)
+	_set_active_sprite(sprite_none)
+
+func _set_active_sprite(new_sprite: AnimatedSprite2D) -> void:
+	sprite_none.visible = false
+	sprite_fire.visible = false
+	sprite_ice.visible = false
+	sprite_lightning.visible = false
+	new_sprite.visible = true
+	animated_sprite = new_sprite
+
+func _on_power_changed(power: PowerManager.Power) -> void:
+	match power:
+		PowerManager.Power.NONE:
+			_set_active_sprite(sprite_none)
+		PowerManager.Power.FIRE:
+			_set_active_sprite(sprite_fire)
+		PowerManager.Power.ICE:
+			_set_active_sprite(sprite_ice)
+		PowerManager.Power.LIGHTNING:
+			_set_active_sprite(sprite_lightning)
 
 func shoot_projectile() -> void:
 	match PowerManager.current_power:
@@ -57,6 +83,18 @@ func _on_sprite_2d_animation_finished() -> void:
 	if (animated_sprite.animation == "attack" or animated_sprite.animation == "jump") and is_attacking and not dead :
 		shoot_projectile()
 		is_attacking = false
+		
+func _on_lightning_animation_finished() -> void:
+	if (animated_sprite.animation == "attack" or animated_sprite.animation == "jump") and is_attacking and not dead :
+		shoot_projectile()
+		is_attacking = false
+		
+
+func _on_ice_animation_finished() -> void:
+	if (animated_sprite.animation == "attack" or animated_sprite.animation == "jump") and is_attacking and not dead :
+		shoot_projectile()
+		is_attacking = false
+
 
 func _physics_process(delta: float) -> void:
 	wall_jump_timer -= delta

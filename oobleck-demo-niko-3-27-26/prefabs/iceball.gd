@@ -20,7 +20,7 @@ func _on_body_entered(body: Node2D) -> void:
 		print(tile_coords)
 		body.try_freeze_tile(tile_coords)
 	
-	if body is Slime:
+	elif body is Slime:
 		body.die()
 	destroy()
 

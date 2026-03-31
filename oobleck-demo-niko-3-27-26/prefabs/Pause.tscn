@@ -3,16 +3,7 @@
 [ext_resource type="Script" uid="uid://bo0cht25k8wtk" path="res://scripts/Menu.gd" id="1_254n7"]
 [ext_resource type="Texture2D" uid="uid://dmowtoc4spsyq" path="res://Asset/ui_background.png" id="1_upyyo"]
 [ext_resource type="Theme" uid="uid://bpn64vvfosajt" path="res://pink_Slider.tres" id="2_jihm0"]
-[ext_resource type="Texture2D" uid="uid://gu03l0dm3fcy" path="res://Asset/button-Sheet.png" id="3_pehjw"]
 [ext_resource type="Texture2D" uid="uid://dmn7mqg05rwvq" path="res://Asset/ui-export.png" id="4_upyyo"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tcam4"]
-atlas = ExtResource("3_pehjw")
-region = Rect2(18.032713, 36.014137, 58.97953, 23.967361)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wpy68"]
-atlas = ExtResource("3_pehjw")
-region = Rect2(117.97817, 37.010387, 58.05111, 23.005188)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ilmm"]
 atlas = ExtResource("4_upyyo")
@@ -30,22 +21,14 @@ scale = Vector2(3.346666, 3.5048156)
 texture = ExtResource("1_upyyo")
 script = ExtResource("1_254n7")
 
-[node name="Back" type="TextureButton" parent="." unique_id=791257461]
-offset_left = -32.561573
-offset_top = 23.50295
-offset_right = 25.438427
-offset_bottom = 54.50295
-scale = Vector2(0.89541394, 0.7213573)
-texture_normal = SubResource("AtlasTexture_tcam4")
-texture_pressed = SubResource("AtlasTexture_wpy68")
-
-[node name="Label" type="Label" parent="Back" unique_id=1830226796]
-layout_mode = 0
-offset_left = 9.782089
-offset_top = -0.42784122
-offset_right = 49.78209
-offset_bottom = 22.572159
-text = "Back"
+[node name="Back" type="Button" parent="." unique_id=1388334299]
+offset_left = -30.478094
+offset_top = 25.393635
+offset_right = 51.521904
+offset_bottom = 71.39363
+scale = Vector2(0.5632608, 0.4537703)
+theme = ExtResource("2_jihm0")
+text = "  back "
 
 [node name="FX" type="Sprite2D" parent="." unique_id=2008753478]
 position = Vector2(-29.01348, -11.585431)
@@ -81,22 +64,15 @@ step = 0.001
 value = 0.75
 ticks_position = 1
 
-[node name="lvl slc" type="TextureButton" parent="." unique_id=790664628]
-offset_left = -32.56156
-offset_top = 1.7700857
-offset_right = 25.438438
-offset_bottom = 32.770084
-scale = Vector2(0.89541394, 0.7213573)
-texture_normal = SubResource("AtlasTexture_tcam4")
-texture_pressed = SubResource("AtlasTexture_wpy68")
-
-[node name="Label" type="Label" parent="lvl slc" unique_id=411368682]
-layout_mode = 0
-offset_left = 0.22832012
-offset_top = -1.2639285
-offset_right = 58.22832
-offset_bottom = 21.73607
-text = "LVL SEL"
+[node name="lvl slc" type="Button" parent="." unique_id=127811170]
+offset_left = -42.13148
+offset_top = -1.1412868
+offset_right = 81.868515
+offset_bottom = 44.85871
+scale = Vector2(0.5697641, 0.4590095)
+theme = ExtResource("2_jihm0")
+theme_override_font_sizes/font_size = 16
+text = "  LVL SEL "
 
 [connection signal="button_up" from="Back" to="." method="_on_back_button_up"]
 [connection signal="value_changed" from="FX_SLIDER" to="." method="_on_fx_slider_value_changed"]

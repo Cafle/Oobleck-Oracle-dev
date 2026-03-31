@@ -23,5 +23,5 @@ func _ready() -> void:
 	queue_free()
 	
 func _apply_to(target: Node) -> void:
-	if target is Slime and target.slime_type == Slime.SlimeType.GENERIC:
-			target.die()
+	if target is Slime:
+		target.die()

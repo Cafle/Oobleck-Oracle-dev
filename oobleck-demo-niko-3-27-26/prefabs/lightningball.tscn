@@ -50,13 +50,15 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 12.0
+"speed": 16.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5x8wr"]
 radius = 5.0990195
 
 [node name="lightningball" type="Area2D" unique_id=2101407860]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_n7kaf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1774373734]
@@ -70,3 +72,5 @@ frame_progress = 0.74953055
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=2106577018]
 position = Vector2(2, 0)
 shape = SubResource("CircleShape2D_5x8wr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
