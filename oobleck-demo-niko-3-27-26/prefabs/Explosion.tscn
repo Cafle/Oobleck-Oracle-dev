@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dssdseixqb2pw"]
 
+[ext_resource type="Texture2D" uid="uid://cpauijtm52mn4" path="res://Asset/pow.png" id="2_ectsk"]
 [ext_resource type="Script" uid="uid://dty3tq4n7tbp" path="res://prefabs/explosion.gd" id="2_epeeg"]
-[ext_resource type="Texture2D" uid="uid://d1t48slyjws7y" path="res://Asset/pngwing.com (6).png" id="3_ectsk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mqod7"]
 radius = 5.0990195
@@ -20,8 +20,8 @@ shape = SubResource("CircleShape2D_mqod7")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=730597309]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=222221387]
-scale = Vector2(0.32269543, 0.10059104)
-texture = ExtResource("3_ectsk")
+scale = Vector2(3, 3)
+texture = ExtResource("2_ectsk")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

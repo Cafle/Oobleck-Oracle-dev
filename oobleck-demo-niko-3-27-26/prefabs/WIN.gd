@@ -22,7 +22,6 @@ func is_slimes() -> bool:
 	
 
 func _on_body_entered(body: Node2D) -> void:
-	print("bruh")
 	if go:
 		print("bruhdsd")
 		LevelManager.advance_level()

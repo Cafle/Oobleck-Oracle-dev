@@ -1,8 +1,9 @@
 extends Node
 
 var current_level: int = 1
-var level_unlocked: int = 10
-var max_level: int = 5
+var level_unlocked: int = 15
+var max_level: int = 15
+
 var music_time = 0
 func _unlock_level(level_to_unlock: int) -> void:
 	if level_to_unlock > level_unlocked:

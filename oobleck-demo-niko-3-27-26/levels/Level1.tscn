@@ -462,7 +462,6 @@ texture = SubResource("AtlasTexture_nn0v1")
 
 [node name="Default_Slime" parent="." unique_id=493526150 instance=ExtResource("11_j4pg1")]
 position = Vector2(-37, 111)
-slime_type = 1
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=599153819]
 position = Vector2(-3.0517578e-05, 0)
@@ -493,14 +492,14 @@ scroll_active = false
 autowrap_mode = 0
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="." unique_id=382129067]
-offset_left = 394.0
-offset_top = 24.0
-offset_right = 542.0
-offset_bottom = 116.0
+offset_left = 375.0
+offset_top = 37.0
+offset_right = 523.0
+offset_bottom = 129.0
 scale = Vector2(2.029142, 1.83301)
 theme = ExtResource("12_kdcll")
 theme_override_font_sizes/normal_font_size = 11
-text = "touch"
+text = "ponder"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0

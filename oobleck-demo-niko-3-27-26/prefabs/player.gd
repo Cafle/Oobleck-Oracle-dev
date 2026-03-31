@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 const MAX_SPEED_X = 400
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
-const WALL_VELOCITY = 800
+const JUMP_VELOCITY = -480.0
+const WALL_VELOCITY = 900
 const WALL_JUMP_TIME = 0.1
 
 var dead = false

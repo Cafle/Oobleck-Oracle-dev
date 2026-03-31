@@ -298,13 +298,12 @@ animations = [{
 }]
 
 [node name="Default_Slime" type="CharacterBody2D" unique_id=294541890]
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_6qfca")
 
 [node name="none" type="AnimatedSprite2D" parent="." unique_id=382860349]
-visible = false
 sprite_frames = SubResource("SpriteFrames_8fba4")
 autoplay = "default"
 
@@ -313,11 +312,11 @@ position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_dvk11")
 
 [node name="LeftLedge" type="RayCast2D" parent="." unique_id=499709658]
-target_position = Vector2(-10, 15)
+target_position = Vector2(-7, 12)
 collision_mask = 2
 
 [node name="RightLedge" type="RayCast2D" parent="." unique_id=1559500840]
-target_position = Vector2(10, 15)
+target_position = Vector2(7, 12)
 collision_mask = 2
 
 [node name="LeftWall" type="RayCast2D" parent="." unique_id=1434060618]
